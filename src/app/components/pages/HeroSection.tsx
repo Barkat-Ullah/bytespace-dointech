@@ -30,24 +30,24 @@ const HeroSection = () => {
                 />
 
                 {/* Foreground Content: Title, Description, and Search Bar */}
-                <div className="absolute inset-x-0 top-0 z-10 pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-14 px-4 sm:px-6">
+                <div className="absolute inset-x-0 top-0 z-10 pt-6 md:pt-8 lg:pt-10 xl:pt-14 px-4 sm:px-6">
                     <div className="max-w-3xl lg:max-w-4xl mx-auto text-center flex flex-col items-center">
 
-                        <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.14] drop-shadow-sm">
+                        <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.14] drop-shadow-sm">
                             Get Access to Hundreds
                             <br />
                             Courses Available
                         </h1>
 
 
-                        <p className="mt-2 sm:mt-3 md:mt-4 text-xs sm:text-sm md:text-base lg:text-lg text-white/85 max-w-lg md:max-w-xl lg:max-w-2xl leading-relaxed">
+                        <p className="mt-3 md:mt-4 text-sm md:text-base lg:text-lg text-white/85 max-w-lg md:max-w-xl lg:max-w-2xl leading-relaxed">
                             Unlock your creativity, gain valuable knowledge, and grow your
                             business with our wide range of courses.
                         </p>
 
                         <form
                             onSubmit={handleSearch}
-                            className="mt-3 sm:mt-5 md:mt-6 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl flex items-center justify-center gap-2 sm:gap-3"
+                            className="mt-5 md:mt-6 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl flex items-center justify-center gap-2 sm:gap-3"
                         >
                             <div className="relative flex items-center w-full bg-white rounded-full px-4 sm:px-5 py-2 sm:py-3 shadow-lg shadow-black/15 focus-within:ring-2 focus-within:ring-primary transition-all">
                                 <Search className="w-4 h-4 sm:w-5 sm:h-5 text-shuttle-gray-400 shrink-0 mr-2 sm:mr-3" />
