@@ -95,13 +95,13 @@ const Navbar = () => {
 
           <div className="hidden sm:flex items-center gap-3 md:gap-4">
             <Link
-              href="/sign-in"
+              href="/signin"
               className="text-sm font-medium text-white/90 hover:text-white px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               Sign In
             </Link>
 
-            <Link href="/join-us">
+            <Link href="/signup">
               <Button
                 variant="primary"
                 size="sm"
@@ -177,13 +177,13 @@ const Navbar = () => {
 
             <div className="pt-4 mt-2 border-t border-white/10 flex flex-col gap-3">
               <Link
-                href="/sign-in"
+                href="/signin"
                 onClick={closeMobileMenu}
                 className="w-full text-center py-2.5 text-sm font-semibold text-white bg-white/10 hover:bg-white/15 rounded-full transition-colors duration-200"
               >
                 Sign In
               </Link>
-              <Link href="/join-us" onClick={closeMobileMenu} className="w-full">
+              <Link href="/signup" onClick={closeMobileMenu} className="w-full">
                 <Button
                   variant="primary"
                   size="md"
