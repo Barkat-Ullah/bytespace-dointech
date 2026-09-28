@@ -38,14 +38,14 @@ const TestimonialSection = () => {
     >
       <NMContainer>
         {/* Split Section Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start text-center lg:text-left">
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-shuttle-gray-950 leading-[1.18] tracking-tight">
             Discover What Our
             <br />
             Community Is Saying
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-shuttle-gray-400 leading-relaxed max-w-xl lg:mt-2">
+          <p className="text-xs sm:text-sm md:text-base text-shuttle-gray-400 leading-relaxed max-w-xl lg:mt-2 mx-auto lg:mx-0">
             At ByteSpace, our vibrant community of learners and creators is at
             the heart of what we do. Hear directly from those who have
             experienced the transformative journey of learning and creating on

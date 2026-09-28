@@ -33,14 +33,14 @@ const Stats = () => {
         <div className="space-y-6 md:space-y-8 lg:space-y-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 sm:gap-12 lg:gap-16">
             {/* Left Content */}
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold text-shuttle-gray-950 leading-[1.18] tracking-tight">
                 Your Path to Professional
                 <br className="hidden sm:inline" />
-                Growth Starts Here!
+                {" "}Growth Starts Here!
               </h2>
 
-              <p className="mt-4 sm:mt-5 text-sm sm:text-base text-shuttle-gray-400 leading-relaxed max-w-xl">
+              <p className="mt-4 sm:mt-5 text-sm sm:text-base text-shuttle-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Explore our curated selection of courses tailored to enhance your
                 capabilities and accelerate your career journey. Whether you are
                 looking to sharpen specific skills, gain industry expertise, or
@@ -49,9 +49,9 @@ const Stats = () => {
               </p>
 
               {/* Metrics Row */}
-              <div className="mt-8 sm:mt-10 flex items-center gap-8 sm:gap-12 lg:gap-14">
+              <div className="mt-8 sm:mt-10 flex items-center justify-center lg:justify-start gap-8 sm:gap-12 lg:gap-14">
                 {metrics.map((item) => (
-                  <div key={item.label} className="flex flex-col">
+                  <div key={item.label} className="flex flex-col items-center lg:items-start">
                     <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-secondary tracking-tight">
                       {item.value}
                     </span>
@@ -99,14 +99,14 @@ const Stats = () => {
             </div>
 
             {/* Right Content */}
-            <div className="order-1 lg:order-2 flex flex-col justify-center">
+            <div className="order-1 lg:order-2 flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold text-shuttle-gray-950 leading-[1.18] tracking-tight">
                 Create & Manage
                 <br className="hidden sm:inline" />
-                Courses Easily.
+                {" "}Courses Easily.
               </h2>
 
-              <p className="mt-4 sm:mt-5 text-sm sm:text-base text-shuttle-gray-400 leading-relaxed max-w-xl">
+              <p className="mt-4 sm:mt-5 text-sm sm:text-base text-shuttle-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 <strong className="font-semibold text-shuttle-gray-950">
                   ByteSpace
                 </strong>{" "}
@@ -115,7 +115,7 @@ const Stats = () => {
               </p>
 
               {/* Checklist */}
-              <ul className="mt-6 sm:mt-8 space-y-3.5 sm:space-y-4">
+              <ul className="mt-6 sm:mt-8 space-y-3.5 sm:space-y-4 self-center lg:self-start text-left">
                 {creatorFeatures.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-secondary flex items-center justify-center shrink-0 shadow-sm shadow-secondary/30">
