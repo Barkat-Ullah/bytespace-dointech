@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Search } from "lucide-react";
 import Button from "../ui/Button";
+import NMContainer from "../ui/Container";
 
 const HeroSection = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -30,8 +31,9 @@ const HeroSection = () => {
                 />
 
                 {/* Foreground Content: Title, Description, and Search Bar */}
-                <div className="absolute inset-x-0 top-0 z-10 pt-6 md:pt-8 lg:pt-10 xl:pt-14 px-4 sm:px-6">
-                    <div className="max-w-3xl lg:max-w-4xl mx-auto text-center flex flex-col items-center">
+                <div className="absolute inset-x-0 top-0 z-10 pt-6 md:pt-8 lg:pt-10 xl:pt-14">
+                    <NMContainer>
+                        <div className="max-w-3xl lg:max-w-4xl mx-auto text-center flex flex-col items-center">
 
                         <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.14] drop-shadow-sm">
                             Get Access to Hundreds
@@ -70,7 +72,8 @@ const HeroSection = () => {
                             </Button>
                         </form>
                     </div>
-                </div>
+                </NMContainer>
+            </div>
             </div>
         </section>
     );

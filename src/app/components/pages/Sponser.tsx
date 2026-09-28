@@ -22,23 +22,51 @@ const Sponsor = () => {
   return (
     <section
       aria-label="Trusted Sponsors and Partners"
-      className="w-full bg-shuttle-gray-50 py-10 sm:py-12 md:py-14 lg:py-16 border-y border-shuttle-gray-200/60"
+      className="w-full bg-shuttle-gray-50 py-10 md:py-14 lg:py-16 border-y border-shuttle-gray-200/60"
     >
       <NMContainer>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center justify-items-center gap-8 sm:gap-10 md:gap-8 lg:gap-12 xl:gap-16">
-          {sponsors.map((item) => (
+        {/* Desktop & Tablet (md and above): Edge-to-edge space-between matching Category container lines */}
+        <div className="hidden md:flex items-center justify-between w-full">
+          {sponsors.map((item, index) => (
             <div
               key={item.id}
-              className="flex items-center justify-center w-full last:col-span-2 sm:last:col-span-1"
+              className={`flex items-center transition-transform duration-200 hover:scale-105 opacity-90 hover:opacity-100 cursor-pointer ${
+                index === 0
+                  ? "justify-start"
+                  : index === sponsors.length - 1
+                  ? "justify-end"
+                  : "justify-center"
+              }`}
             >
-              <div className="relative transition-transform duration-200 hover:scale-105 opacity-90 hover:opacity-100 cursor-pointer">
-                <Image
-                  src={item.src}
-                  alt={item.name}
-                  className="h-6 sm:h-7 md:h-8 lg:h-9 w-auto object-contain select-none"
-                  priority={item.id <= 3}
-                />
-              </div>
+              <Image
+                src={item.src}
+                alt={item.name}
+                className="h-7 md:h-8 lg:h-9 w-auto object-contain select-none"
+                priority={item.id <= 3}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile & Small Screen (< md): Responsive aligned grid matching container bounds */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:hidden items-center gap-6 sm:gap-8">
+          {sponsors.map((item, index) => (
+            <div
+              key={item.id}
+              className={`flex items-center transition-transform duration-200 hover:scale-105 opacity-90 hover:opacity-100 cursor-pointer ${
+                index === 4
+                  ? "col-span-2 sm:col-span-1 justify-center"
+                  : index % 2 === 0
+                  ? "justify-start"
+                  : "justify-end"
+              }`}
+            >
+              <Image
+                src={item.src}
+                alt={item.name}
+                className="h-6 sm:h-7 w-auto object-contain select-none"
+                priority={item.id <= 2}
+              />
             </div>
           ))}
         </div>
