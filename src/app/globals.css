@@ -3,11 +3,61 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Brand Colors */
+  --primary: #d4fb20;
+  --primary-foreground: #003be2;
+  --secondary: #003be2;
+  --secondary-foreground: #ffffff;
+
+  /* Electric Lime */
+  --electric-lime: #d4fb20;
+  --electric-lime-400: #d4fb20;
+
+  /* Persian Blue */
+  --persian-blue: #003be2;
+  --persian-blue-800: #003be2;
+
+  /* Shuttle Gray */
+  --shuttle-gray-50: #f5f5f6;
+  --shuttle-gray-200: #ced0d3;
+  --shuttle-gray-300: #abaeb5;
+  --shuttle-gray-400: #82868e;
+  --shuttle-gray-700: #4b4c53;
+  --shuttle-gray-950: #242528;
+
+  /* Black */
+  --black-50: #f8f9fa;
+  --black-700: #4f4f4f;
+  --black-950: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-electric-lime: #d4fb20;
+  --color-electric-lime-400: #d4fb20;
+
+  --color-persian-blue: #003be2;
+  --color-persian-blue-800: #003be2;
+
+  --color-shuttle-gray-50: #f5f5f6;
+  --color-shuttle-gray-200: #ced0d3;
+  --color-shuttle-gray-300: #abaeb5;
+  --color-shuttle-gray-400: #82868e;
+  --color-shuttle-gray-700: #4b4c53;
+  --color-shuttle-gray-950: #242528;
+
+  --color-black-50: #f8f9fa;
+  --color-black-700: #4f4f4f;
+  --color-black-950: #000000;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -24,3 +74,4 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+

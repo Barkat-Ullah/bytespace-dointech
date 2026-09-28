@@ -1,8 +1,205 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ShoppingBag, Menu, X } from "lucide-react";
+import NMContainer from "../ui/Container";
+import Button from "../ui/Button";
+import { cn } from "@/lib/utils";
+
+interface NavLinkItem {
+  label: string;
+  href: string;
+}
+
+const navLinks: NavLinkItem[] = [
+  { label: "Home", href: "/" },
+  { label: "Course", href: "/course" },
+  { label: "Creators", href: "/creators" },
+];
+
 const Navbar = () => {
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Track scroll position to enhance navbar with subtle backdrop blur when scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
   return (
-    <div>
-      <h1>Navbar</h1>
-    </div>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300",
+        isScrolled
+          ? "bg-secondary/95 backdrop-blur-md shadow-lg shadow-black/10 border-b border-white/10 py-3"
+          : "bg-secondary py-4 md:py-5"
+      )}
+    >
+      <NMContainer>
+        <div className="flex items-center justify-between">
+          {/* Left: Brand Logo */}
+          <Link
+            href="/"
+            className="flex items-center gap-2 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+          >
+            <div className="relative h-8 w-36 sm:h-9 sm:w-40">
+              <Image
+                src="/Logo.png"
+                alt="ByteSpace"
+                fill
+                priority
+                sizes="(max-width: 640px) 144px, 160px"
+                className="object-contain object-left transition-transform duration-200 group-hover:scale-[1.02]"
+              />
+            </div>
+          </Link>
+
+          {/* Center: Navigation Links (Desktop) */}
+          <nav
+            aria-label="Main Navigation"
+            className="hidden md:flex items-center gap-8 lg:gap-10"
+          >
+            {navLinks.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors duration-200 relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm",
+                    isActive
+                      ? "text-white font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:rounded-full"
+                      : "text-white/80 hover:text-white"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right: Actions (Sign In, Join Us, Cart) */}
+          <div className="hidden sm:flex items-center gap-3 md:gap-4">
+            <Link
+              href="/sign-in"
+              className="text-sm font-medium text-white/90 hover:text-white px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              Sign In
+            </Link>
+
+            <Link href="/join-us">
+              <Button
+                variant="primary"
+                size="sm"
+                className="font-bold px-5 tracking-wide shadow-sm hover:shadow-primary/30"
+              >
+                Join Us
+              </Button>
+            </Link>
+
+            {/* Shopping Bag Button */}
+            <Link
+              href="/cart"
+              aria-label="View Cart"
+              className="relative p-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              <ShoppingBag className="w-5 h-5" />
+              <span className="sr-only">Shopping Cart</span>
+            </Link>
+          </div>
+
+          {/* Mobile Right Controls: Cart & Hamburger Button */}
+          <div className="flex sm:hidden items-center gap-2">
+            <Link
+              href="/cart"
+              aria-label="View Cart"
+              className="p-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-colors duration-200"
+            >
+              <ShoppingBag className="w-5 h-5" />
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-expanded={mobileMenuOpen}
+              aria-label="Toggle Navigation Menu"
+              className="p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </div>
+      </NMContainer>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-white/10 bg-secondary/98 backdrop-blur-xl px-5 py-6 animate-in slide-in-from-top-2 duration-200">
+          <nav className="flex flex-col gap-4">
+            {navLinks.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={closeMobileMenu}
+                  className={cn(
+                    "text-base font-medium py-2 px-3 rounded-lg transition-colors duration-200",
+                    isActive
+                      ? "text-primary bg-white/10 font-semibold"
+                      : "text-white/90 hover:text-white hover:bg-white/5"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+
+            <div className="pt-4 mt-2 border-t border-white/10 flex flex-col gap-3">
+              <Link
+                href="/sign-in"
+                onClick={closeMobileMenu}
+                className="w-full text-center py-2.5 text-sm font-semibold text-white bg-white/10 hover:bg-white/15 rounded-full transition-colors duration-200"
+              >
+                Sign In
+              </Link>
+              <Link href="/join-us" onClick={closeMobileMenu} className="w-full">
+                <Button
+                  variant="primary"
+                  size="md"
+                  fullWidth
+                  className="font-bold tracking-wide shadow-sm"
+                >
+                  Join Us
+                </Button>
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
+    </header>
   );
 };
 
