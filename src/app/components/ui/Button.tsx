@@ -20,22 +20,17 @@ export interface ButtonProps
 }
 
 const variantStyles: Record<NonNullable<ButtonProps["variant"]>, string> = {
-  // Electric Lime (#d4fb20) background with Persian Blue text (#003be2) or dark text as in Figma
   primary:
     "bg-primary text-secondary hover:bg-[#cbf51b] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:ring-primary",
-  // Persian Blue (#003be2) background with white text
   secondary:
     "bg-secondary text-white hover:bg-[#0031b8] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:ring-secondary",
-  // Clean outline for light backgrounds
   outline:
     "border border-shuttle-gray-300 text-shuttle-gray-950 hover:bg-shuttle-gray-50 active:scale-[0.98] focus-visible:ring-secondary",
-  // Outline for dark/blue backgrounds (like hero / navbar)
   "outline-white":
     "border border-white/25 text-white hover:bg-white/10 hover:border-white/50 active:scale-[0.98] focus-visible:ring-white",
   // Ghost button
   ghost:
     "text-shuttle-gray-950 hover:bg-shuttle-gray-50 active:scale-[0.98] focus-visible:ring-secondary",
-  // Ghost button for blue/dark backgrounds
   "ghost-white":
     "text-white hover:bg-white/10 active:scale-[0.98] focus-visible:ring-white",
   // White pill button

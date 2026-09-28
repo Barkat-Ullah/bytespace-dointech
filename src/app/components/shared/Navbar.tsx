@@ -16,7 +16,7 @@ interface NavLinkItem {
 
 const navLinks: NavLinkItem[] = [
   { label: "Home", href: "/" },
-  { label: "Course", href: "/course" },
+  { label: "Courses", href: "/courses" },
   { label: "Creators", href: "/creators" },
 ];
 
@@ -41,14 +41,15 @@ const Navbar = () => {
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
+        "bg-secondary bg-[url('/common-bg.png')] bg-top bg-cover bg-no-repeat",
         isScrolled
-          ? "bg-secondary/95 backdrop-blur-md shadow-lg shadow-black/10 border-b border-white/10 py-3"
-          : "bg-secondary py-4 md:py-5"
+          ? "shadow-lg shadow-black/20 border-b border-white/10 py-3 backdrop-blur-md"
+          : "py-4 md:py-5 border-b border-[#1f53e6]/50"
       )}
     >
       <NMContainer>
         <div className="flex items-center justify-between">
-          {/* Left: Brand Logo */}
+        
           <Link
             href="/"
             className="flex items-center gap-2 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
@@ -65,7 +66,6 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* Center: Navigation Links (Desktop) */}
           <nav
             aria-label="Main Navigation"
             className="hidden md:flex items-center gap-8 lg:gap-10"
@@ -73,7 +73,7 @@ const Navbar = () => {
             {navLinks.map((item) => {
               const isActive =
                 item.href === "/"
-                  ? pathname === "/"
+                  ? pathname === "/" || pathname === ""
                   : pathname.startsWith(item.href);
 
               return (
@@ -81,10 +81,10 @@ const Navbar = () => {
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors duration-200 relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm",
+                    "text-sm font-medium transition-colors duration-200 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm",
                     isActive
-                      ? "text-white font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary after:rounded-full"
-                      : "text-white/80 hover:text-white"
+                      ? "text-primary font-semibold"
+                      : "text-white/85 hover:text-primary"
                   )}
                 >
                   {item.label}
@@ -93,7 +93,6 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* Right: Actions (Sign In, Join Us, Cart) */}
           <div className="hidden sm:flex items-center gap-3 md:gap-4">
             <Link
               href="/sign-in"
@@ -112,7 +111,6 @@ const Navbar = () => {
               </Button>
             </Link>
 
-            {/* Shopping Bag Button */}
             <Link
               href="/cart"
               aria-label="View Cart"
@@ -123,7 +121,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Right Controls: Cart & Hamburger Button */}
+
           <div className="flex sm:hidden items-center gap-2">
             <Link
               href="/cart"
@@ -157,7 +155,7 @@ const Navbar = () => {
             {navLinks.map((item) => {
               const isActive =
                 item.href === "/"
-                  ? pathname === "/"
+                  ? pathname === "/" || pathname === ""
                   : pathname.startsWith(item.href);
 
               return (
@@ -168,8 +166,8 @@ const Navbar = () => {
                   className={cn(
                     "text-base font-medium py-2 px-3 rounded-lg transition-colors duration-200",
                     isActive
-                      ? "text-primary bg-white/10 font-semibold"
-                      : "text-white/90 hover:text-white hover:bg-white/5"
+                      ? "text-primary font-semibold bg-white/10"
+                      : "text-white/90 hover:text-primary hover:bg-white/5"
                   )}
                 >
                   {item.label}
