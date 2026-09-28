@@ -5,6 +5,7 @@ import Sponsor from "./pages/Sponser";
 import Category from "./pages/Category";
 import Stats from "./pages/Stats";
 import CTAsection from "./pages/CTAsection";
+import TestimonialSection from "./pages/TestimonbialSection";
 
 const HomeSection = () => {
     return (
@@ -14,6 +15,7 @@ const HomeSection = () => {
             <Category />
             <Stats/>
             <CTAsection/>
+            <TestimonialSection/>
         </>
     );
 };
