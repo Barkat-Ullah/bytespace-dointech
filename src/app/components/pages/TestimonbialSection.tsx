@@ -37,7 +37,6 @@ const TestimonialSection = () => {
       className="relative w-full bg-[url('/Testimonials_Frame.png')] bg-cover bg-center bg-no-repeat overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28"
     >
       <NMContainer>
-        {/* Split Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start text-center lg:text-left">
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-shuttle-gray-950 leading-[1.18] tracking-tight">
             Discover What Our
@@ -54,7 +53,6 @@ const TestimonialSection = () => {
           </p>
         </div>
 
-        {/* Testimonials Cards Grid */}
         <div className="mt-12 sm:mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {testimonials.map((item) => (
             <TestimonialCard key={item.name} {...item} />

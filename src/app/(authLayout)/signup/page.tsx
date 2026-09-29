@@ -16,7 +16,6 @@ const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Pre-warm the home route in Next.js router cache to ensure instant transition
   useEffect(() => {
     router.prefetch("/");
   }, [router]);
@@ -51,18 +50,13 @@ const SignUpPage = () => {
           </div>
         </Link>
 
-        {/* Heading */}
         <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-white tracking-tight leading-tight">
           Sign up and come in
         </h1>
-
-        {/* Subtitle */}
         <p className="mt-2 text-xs sm:text-sm text-white/80 leading-relaxed max-w-md">
           The registration process is straightforward, uncomplicated, and
           efficient, allowing users to sign up quickly, easily, and at no cost.
         </p>
-
-        {/* Feature Graphic */}
         <div className="relative mt-4 sm:mt-5 lg:mt-6 w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[380px] xl:max-w-[420px]">
           <Image
             src="/sign-up-in.png"
@@ -75,7 +69,6 @@ const SignUpPage = () => {
         </div>
       </div>
 
-      {/* Right Column: Register Card */}
       <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end w-full">
         <div className="w-full max-w-[420px] bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-2xl border border-white/20">
           {/* Card Header */}
@@ -88,9 +81,8 @@ const SignUpPage = () => {
             </h2>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5">
-            {/* Full Name */}
+
             <div>
               <label
                 htmlFor="fullName"
@@ -108,7 +100,6 @@ const SignUpPage = () => {
               />
             </div>
 
-            {/* Email */}
             <div>
               <label
                 htmlFor="email"
@@ -126,7 +117,6 @@ const SignUpPage = () => {
               />
             </div>
 
-            {/* Password */}
             <div>
               <label
                 htmlFor="password"
@@ -158,7 +148,6 @@ const SignUpPage = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
             <div className="flex justify-end pt-1">
               <Button
                 type="submit"
@@ -172,7 +161,6 @@ const SignUpPage = () => {
             </div>
           </form>
 
-          {/* Switch Link */}
           <p className="text-xs text-shuttle-gray-400 text-center mt-4 sm:mt-5">
             Already have an account?{" "}
             <Link

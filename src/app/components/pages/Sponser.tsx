@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import NMContainer from "../ui/Container";
 
@@ -25,7 +24,7 @@ const Sponsor = () => {
       className="w-full bg-shuttle-gray-50 py-10 md:py-14 lg:py-16 border-y border-shuttle-gray-200/60"
     >
       <NMContainer>
-        {/* Desktop & Tablet (md and above): Edge-to-edge space-between matching Category container lines */}
+      
         <div className="hidden md:flex items-center justify-between w-full">
           {sponsors.map((item, index) => (
             <div
@@ -48,7 +47,6 @@ const Sponsor = () => {
           ))}
         </div>
 
-        {/* Mobile & Small Screen (< md): Responsive aligned grid matching container bounds */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:hidden items-center gap-6 sm:gap-8">
           {sponsors.map((item, index) => (
             <div

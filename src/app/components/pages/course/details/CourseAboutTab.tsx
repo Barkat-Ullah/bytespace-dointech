@@ -36,7 +36,6 @@ export const CourseAboutTab: React.FC<CourseAboutTabProps> = ({ course }) => {
         </div>
       </section>
 
-      {/* Sneak Peek Section */}
       <section>
         <h2 className="text-xl sm:text-2xl font-bold text-gray-950 mb-4">
           Sneak Peek

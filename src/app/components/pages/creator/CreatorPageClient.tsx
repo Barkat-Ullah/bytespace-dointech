@@ -73,7 +73,6 @@ export const CreatorPageClient: React.FC = () => {
 
   return (
     <div className="w-full bg-white min-h-screen">
-      {/* 1. Creator Hero Banner */}
       <CreatorHeroBanner
         searchQuery={searchQuery}
         onSearchChange={handleSearchChange}
@@ -84,10 +83,8 @@ export const CreatorPageClient: React.FC = () => {
         }}
       />
 
-      {/* Anchor for smooth scroll */}
       <div ref={gridTopRef} className="scroll-mt-24" />
 
-      {/* 2. Category Filter Pills */}
       <section className="w-full bg-white border-b border-gray-100 py-6 sm:py-7">
         <NMContainer>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap">
@@ -113,10 +110,8 @@ export const CreatorPageClient: React.FC = () => {
         </NMContainer>
       </section>
 
-      {/* 3. Main Creator Cards Grid (3 per row on desktop) */}
       <section className="w-full bg-white py-10 sm:py-12 md:py-16">
         <NMContainer>
-          {/* Active Filter Reset Button */}
           {(searchQuery.trim() !== "" || selectedCategory !== "All") && (
             <div className="mb-6 flex items-center justify-end">
               <button
@@ -137,7 +132,7 @@ export const CreatorPageClient: React.FC = () => {
               ))}
             </div>
           ) : (
-            /* Empty State */
+         
             <div className="py-20 px-4 text-center rounded-3xl bg-gray-50 border border-dashed border-gray-200 max-w-lg mx-auto">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 No creators found
@@ -156,7 +151,7 @@ export const CreatorPageClient: React.FC = () => {
             </div>
           )}
 
-          {/* 4. Bottom Pagination */}
+          {/* Bottom Pagination */}
           <CoursePagination
             currentPage={currentPage}
             totalPages={totalPages}

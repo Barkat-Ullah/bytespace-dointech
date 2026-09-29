@@ -27,7 +27,6 @@ const CourseSection = () => {
       className="w-full bg-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
     >
       <NMContainer>
-        {/* Section Header */}
         <SectionHeader
           title={
             <>
@@ -64,7 +63,6 @@ const CourseSection = () => {
             );
           })}
 
-          {/* + More Link leading to full courses directory */}
           <Link
             href="/courses"
             className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold text-secondary hover:underline transition-colors flex items-center gap-1"

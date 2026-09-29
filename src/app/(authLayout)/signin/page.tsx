@@ -15,7 +15,6 @@ const SignInPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Pre-warm the home route in Next.js router cache to ensure instant transition
   useEffect(() => {
     router.prefetch("/");
   }, [router]);
@@ -31,7 +30,6 @@ const SignInPage = () => {
 
   return (
     <div className="w-full max-w-5xl xl:max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center">
-      {/* Left Column: Branding, Title & Graphics */}
       <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
         {/* Logo */}
         <Link
@@ -50,19 +48,16 @@ const SignInPage = () => {
             />
           </div>
         </Link>
-
-        {/* Heading */}
+      
         <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-white tracking-tight leading-tight">
           Sign in with ease
         </h1>
 
-        {/* Subtitle */}
         <p className="mt-2 text-xs sm:text-sm text-white/80 leading-relaxed max-w-md">
           Experience a seamless and efficient sign-in process that grants you
           instant access to a world of knowledge.
         </p>
 
-        {/* Feature Graphic */}
         <div className="relative mt-4 sm:mt-5 lg:mt-6 w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[380px] xl:max-w-[420px]">
           <Image
             src="/sign-up-in.png"
@@ -75,7 +70,6 @@ const SignInPage = () => {
         </div>
       </div>
 
-      {/* Right Column: Sign In Card */}
       <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end w-full">
         <div className="w-full max-w-[420px] bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-2xl border border-white/20">
           {/* Card Header */}
@@ -88,9 +82,7 @@ const SignInPage = () => {
             </h2>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5">
-            {/* Email */}
             <div>
               <label
                 htmlFor="email"
@@ -108,7 +100,6 @@ const SignInPage = () => {
               />
             </div>
 
-            {/* Password */}
             <div>
               <label
                 htmlFor="password"
@@ -140,7 +131,6 @@ const SignInPage = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
             <div className="flex justify-end pt-1">
               <Button
                 type="submit"
@@ -154,7 +144,6 @@ const SignInPage = () => {
             </div>
           </form>
 
-          {/* Social Divider */}
           <div className="relative my-4 sm:my-5 flex items-center justify-center">
             <div className="border-t border-shuttle-gray-200/80 w-full" />
             <span className="bg-white px-3 text-[11px] text-shuttle-gray-400 absolute">
@@ -162,9 +151,7 @@ const SignInPage = () => {
             </span>
           </div>
 
-          {/* Social Login Buttons */}
           <div className="flex items-center justify-center gap-3.5">
-            {/* Facebook */}
             <button
               type="button"
               onClick={() => showSignInSuccessAlert(() => router.push("/"))}
@@ -180,7 +167,6 @@ const SignInPage = () => {
               </svg>
             </button>
 
-            {/* Google */}
             <button
               type="button"
               onClick={() => showSignInSuccessAlert(() => router.push("/"))}
@@ -207,8 +193,7 @@ const SignInPage = () => {
               </svg>
             </button>
           </div>
-
-          {/* Switch Link */}
+          
           <p className="text-xs text-shuttle-gray-400 text-center mt-4 sm:mt-5">
             New user?{" "}
             <Link

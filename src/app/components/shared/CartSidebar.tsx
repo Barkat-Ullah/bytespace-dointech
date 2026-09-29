@@ -47,7 +47,7 @@ const INITIAL_DEMO_ITEMS: DemoCartItem[] = [
   },
 ];
 
-const emptySubscribe = () => () => {};
+const emptySubscribe = () => () => { };
 
 export const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
   const [items, setItems] = useState<DemoCartItem[]>(INITIAL_DEMO_ITEMS);
@@ -68,7 +68,6 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => 
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Prevent background scrolling without causing layout shifts
   useEffect(() => {
     if (isOpen) {
       const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -105,7 +104,6 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => 
         isOpen ? "visible pointer-events-auto" : "invisible pointer-events-none"
       )}
     >
-      {/* Backdrop overlay with smooth fade */}
       <div
         onClick={onClose}
         aria-hidden="true"
@@ -115,7 +113,6 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => 
         )}
       />
 
-      {/* Slide-over Drawer with GPU-accelerated spring-ease curve */}
       <aside
         aria-label="Shopping Cart"
         aria-hidden={!isOpen}
@@ -159,7 +156,7 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => 
                 key={item.id}
                 className="group relative flex items-center gap-3.5 p-3 rounded-2xl bg-gray-50/80 border border-gray-100 hover:border-gray-200 transition-all"
               >
-                {/* Course Image */}
+
                 <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 bg-gray-200">
                   <Image
                     src={item.image}
@@ -207,7 +204,6 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => 
 
         {/* Bottom Pinned Footer with Checkout Button */}
         <div className="border-t border-gray-100 p-6 bg-gray-50/70 mt-auto">
-          {/* Subtotal row */}
           <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
             <span>Subtotal</span>
             <span className="font-semibold text-gray-800">
@@ -215,7 +211,6 @@ export const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => 
             </span>
           </div>
 
-          {/* Total row */}
           <div className="flex items-center justify-between text-base font-bold text-gray-950 mb-4 pt-2 border-t border-gray-200/60">
             <span>Total</span>
             <span className="text-lg font-black text-[#003be2]">

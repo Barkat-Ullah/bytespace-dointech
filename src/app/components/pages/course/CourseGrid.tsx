@@ -29,7 +29,6 @@ export const CourseGrid: React.FC<CourseGridProps> = ({
             ))}
           </div>
         ) : (
-          /* Empty State */
           <div className="py-20 px-4 text-center rounded-3xl bg-gray-50 border border-dashed border-gray-200 max-w-lg mx-auto">
             <h3 className="text-xl font-bold text-gray-900 mb-2">
               No courses found

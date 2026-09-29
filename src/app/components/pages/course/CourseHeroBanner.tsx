@@ -24,7 +24,6 @@ export const CourseHeroBanner: React.FC<CourseHeroBannerProps> = ({
             Find Your Next Course
           </h1>
 
-          {/* Pill Search Bar */}
           <div className="w-full max-w-xl sm:max-w-2xl mt-6 sm:mt-8">
             <form
               onSubmit={(e) => e.preventDefault()}
@@ -33,7 +32,6 @@ export const CourseHeroBanner: React.FC<CourseHeroBannerProps> = ({
               {/* Search Icon */}
               <Search className="w-5 h-5 text-gray-400 ml-3.5 sm:ml-4 shrink-0" />
 
-              {/* Input */}
               <input
                 type="text"
                 placeholder="Search..."

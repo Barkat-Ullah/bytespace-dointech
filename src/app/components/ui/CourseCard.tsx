@@ -34,7 +34,6 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, className }) => 
         className
       )}
     >
-      {/* Thumbnail Area with Floating Frosted Badges */}
       <div className="@container relative aspect-[1.48/1] w-full rounded-[22px] overflow-hidden bg-gray-100">
         <Link
           href={`/courses/${course.slug}`}
@@ -54,7 +53,6 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, className }) => 
           />
         </Link>
 
-        {/* Translucent light frosted glass pills across bottom of image */}
         <div className="absolute inset-x-0 bottom-0 flex items-center justify-between z-10 pointer-events-none p-2 @[270px]:px-2.5 @[270px]:py-2.5 @[360px]:p-3.5 gap-1 @[320px]:gap-1.5">
           <span className="inline-flex items-center justify-center shrink-0 rounded-full font-medium text-gray-800 bg-white/70 backdrop-blur-md border border-white/50 shadow-xs whitespace-nowrap px-1.5 py-1 text-[10px] tracking-tight @[270px]:px-2 @[270px]:text-[11px] @[320px]:px-2.5 @[320px]:py-1.5 @[320px]:text-xs @[320px]:tracking-normal @[360px]:px-3.5 @[360px]:text-[13px]">
             {course.lessonsCount} Lessons
@@ -70,7 +68,6 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, className }) => 
 
       {/* Course Info */}
       <div className="flex flex-col flex-1 mt-5">
-        {/* Title & Rating */}
         <div className="flex items-center justify-between gap-2">
           <h3 className="font-bold text-gray-950 text-xl sm:text-[22px] tracking-tight leading-snug group-hover:text-[#003be2] transition-colors line-clamp-1">
             <Link href={`/courses/${course.slug}`}>{course.title}</Link>
@@ -79,7 +76,6 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, className }) => 
             <span className="text-lg sm:text-xl font-normal text-gray-600">
               {course.rating.toFixed(1)}
             </span>
-            {/* Gray filled 5-point star matching design */}
             <svg
               className="w-5 h-5 fill-[#D1D5DB] text-[#D1D5DB]"
               viewBox="0 0 20 20"
@@ -100,11 +96,8 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, className }) => 
           </Link>
         </p>
 
-        {/* Level Badge & 4-Student Avatars Stack */}
         <div className="flex items-center justify-between gap-2 mb-5">
-          {/* Level Pill */}
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-[#f3f4f6] text-gray-800">
-            {/* 3-bar signal icon with increasing heights */}
             <svg
               className="w-4 h-4 text-gray-700"
               viewBox="0 0 16 16"
@@ -117,7 +110,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, className }) => 
             {course.level}
           </span>
 
-          {/* Student Avatars Stack (4 Avatars + Lime Count) */}
+          {/* Student Avatars Stack */}
           <div className="flex items-center">
             {avatarsToDisplay.map((avatarUrl, idx) => (
               <div
@@ -141,7 +134,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, className }) => 
           </div>
         </div>
 
-        {/* Price Row (Cleanly spaced without divider) */}
+        {/* Price Row */}
         <div className="mt-auto flex items-baseline">
           <span className="text-[#003be2] font-black text-2xl sm:text-[26px] tracking-tight">
             ${course.price}

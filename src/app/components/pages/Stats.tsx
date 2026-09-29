@@ -32,7 +32,6 @@ const Stats = () => {
       <NMContainer>
         <div className="space-y-6 md:space-y-8 lg:space-y-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 sm:gap-12 lg:gap-16">
-            {/* Left Content */}
             <div className="flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold text-shuttle-gray-950 leading-[1.18] tracking-tight">
                 Your Path to Professional
@@ -48,7 +47,6 @@ const Stats = () => {
                 need.
               </p>
 
-              {/* Metrics Row */}
               <div className="mt-8 sm:mt-10 flex items-center justify-center lg:justify-start gap-8 sm:gap-12 lg:gap-14">
                 {metrics.map((item) => (
                   <div key={item.label} className="flex flex-col items-center lg:items-start">
@@ -63,7 +61,6 @@ const Stats = () => {
               </div>
             </div>
 
-            {/* Right Graphic: stats2.png (Student with Learning Progress) */}
             <div className="relative flex items-center justify-center lg:justify-end">
               <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-none transition-transform duration-300 hover:scale-[1.02]">
                 <Image
@@ -79,12 +76,7 @@ const Stats = () => {
             </div>
           </div>
 
-          {/* ========================================================= */}
-          {/* Block 2: "Create & Manage Courses Easily."                 */}
-          {/* Left: Creator Illustration, Right: Content & Checklist    */}
-          {/* ========================================================= */}
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 sm:gap-12 lg:gap-16">
-            {/* Left Graphic: stats1.png (Creator with Revenue & Ratings) */}
             <div className="relative order-2 lg:order-1 flex items-center justify-center lg:justify-start">
               <div className="relative w-full max-w-xs sm:max-w-md lg:max-w-none transition-transform duration-300 hover:scale-[1.02]">
                 <Image
@@ -99,7 +91,6 @@ const Stats = () => {
               </div>
             </div>
 
-            {/* Right Content */}
             <div className="order-1 lg:order-2 flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold text-shuttle-gray-950 leading-[1.18] tracking-tight">
                 Create & Manage
@@ -115,7 +106,6 @@ const Stats = () => {
                 and administration of educational courses.
               </p>
 
-              {/* Checklist */}
               <ul className="mt-6 sm:mt-8 space-y-3.5 sm:space-y-4 self-center lg:self-start text-left">
                 {creatorFeatures.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">

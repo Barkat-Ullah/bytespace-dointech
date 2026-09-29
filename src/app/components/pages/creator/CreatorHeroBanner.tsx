@@ -24,7 +24,6 @@ export const CreatorHeroBanner: React.FC<CreatorHeroBannerProps> = ({
             Find Your Next Creator
           </h1>
 
-          {/* Contextual Subtitle */}
           <p className="mt-3 md:mt-4 text-sm md:text-base text-white/85 max-w-xl leading-relaxed">
             Discover and connect with top instructors, industry practitioners, and creative
             mentors sharing their expertise on ByteSpace.
@@ -39,7 +38,6 @@ export const CreatorHeroBanner: React.FC<CreatorHeroBannerProps> = ({
               {/* Search Icon */}
               <Search className="w-5 h-5 text-gray-400 ml-3.5 sm:ml-4 shrink-0" />
 
-              {/* Input */}
               <input
                 type="text"
                 placeholder="Search creators by name, role, or username..."

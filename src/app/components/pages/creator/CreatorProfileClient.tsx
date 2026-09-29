@@ -48,7 +48,7 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
     }
   };
 
-  // Creator's courses (matching author name)
+  // Creator's courses matching author name
   const creatorCourses = useMemo(() => {
     let result = COURSES_MOCK_DATA.filter(
       (c) =>
@@ -56,12 +56,12 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
         c.author.name.toLowerCase() === creator.name.toLowerCase()
     );
 
-    // If level filter
+    // level filter
     if (selectedLevel !== "All Levels") {
       result = result.filter((c) => c.level === selectedLevel);
     }
 
-    // If category filter
+    // category filter
     if (selectedCategory !== "All") {
       result = result.filter(
         (c) => c.category.toLowerCase() === selectedCategory.toLowerCase()
@@ -82,10 +82,8 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
 
   return (
     <div className="w-full bg-white min-h-screen">
-      {/* 1. Creator Hero Banner (Blue with common-bg.png) */}
       <section className="relative w-full bg-secondary bg-[url('/common-bg.png')] bg-cover bg-center bg-no-repeat py-10 sm:py-14 md:py-16 text-white overflow-hidden">
         <NMContainer>
-          {/* Back Button */}
           <div className="mb-6">
             <button
               type="button"
@@ -96,11 +94,8 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
               <span>Back</span>
             </button>
           </div>
-
-          {/* Creator Profile Header */}
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 max-w-4xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
-              {/* Avatar */}
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-white shadow-xl shrink-0">
                 <Image
                   src={creator.avatar}
@@ -110,8 +105,6 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
                   className="object-cover"
                 />
               </div>
-
-              {/* Name & Badge */}
               <div>
                 <div className="flex items-center gap-2.5 flex-wrap">
                   <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -125,7 +118,6 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
               </div>
             </div>
 
-            {/* Follow Button */}
             <div className="shrink-0 self-start md:self-center">
               <button
                 type="button"
@@ -152,14 +144,12 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
             </div>
           </div>
 
-          {/* Bio text */}
           <div className="mt-6 max-w-3xl space-y-2 text-xs sm:text-sm text-white/85 leading-relaxed">
             {creator.bio.map((paragraph, idx) => (
               <p key={idx}>{paragraph}</p>
             ))}
           </div>
 
-          {/* Stats Pills */}
           <div className="mt-6 flex items-center gap-3">
             <span className="px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-white text-xs font-semibold border border-white/20">
               {creatorCourses.length} Products
@@ -171,11 +161,11 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
         </NMContainer>
       </section>
 
-      {/* 2. Filter & Sort Toolbar */}
+      {/* Filter & Sort Toolbar */}
       <section className="w-full bg-white border-b border-gray-100 py-6">
         <NMContainer>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            {/* Left Filter Buttons */}
+
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <button
                 type="button"
@@ -190,7 +180,6 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
                 <span>Filter</span>
               </button>
 
-              {/* Level Dropdown */}
               <div className="relative">
                 <button
                   type="button"
@@ -220,7 +209,6 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
                 )}
               </div>
 
-              {/* Category Dropdown */}
               <div className="relative">
                 <button
                   type="button"
@@ -261,7 +249,6 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
               </div>
             </div>
 
-            {/* Right Sort */}
             <div className="relative ml-auto">
               <button
                 type="button"
@@ -301,7 +288,7 @@ export const CreatorProfileClient: React.FC<CreatorProfileClientProps> = ({ crea
         </NMContainer>
       </section>
 
-      {/* 3. Courses Grid by this Creator */}
+      {/* Courses Grid by this Creator */}
       <section className="w-full bg-white py-10 sm:py-12 md:py-16">
         <NMContainer>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">

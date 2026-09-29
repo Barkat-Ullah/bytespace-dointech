@@ -37,7 +37,6 @@ export const CourseLessonsTab: React.FC<CourseLessonsTabProps> = ({ course }) =>
               key={module.id}
               className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-[#fafafa] border border-gray-200/70 hover:border-gray-300 hover:bg-white transition-all shadow-xs"
             >
-              {/* Green / Lime Video Icon Box */}
               <div className="w-12 h-12 rounded-2xl bg-[#d4fb20] text-black flex items-center justify-center shrink-0 shadow-xs">
                 <Video className="w-6 h-6 stroke-[2]" />
               </div>

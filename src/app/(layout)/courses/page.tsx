@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useRef, Suspense } from "react";
+import React, { useState, useEffect, useMemo, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   COURSES_MOCK_DATA,
@@ -29,7 +29,6 @@ function CoursesContent() {
   const searchParams = useSearchParams();
   const gridTopRef = useRef<HTMLDivElement>(null);
 
-  // Compute initial category from URL search params if present
   const categoryParam = searchParams.get("category");
   const initialCategory = useMemo(() => {
     if (!categoryParam) return "All";
@@ -41,16 +40,27 @@ function CoursesContent() {
     return "All";
   }, [categoryParam]);
 
+  const queryParam = searchParams.get("search") || searchParams.get("q") || "";
+
   // Filter & Pagination States
-  const [searchQuery, setSearchQuery] = useState("");
+  const [userQuery, setUserQuery] = useState<string | null>(null);
+  const searchQuery = userQuery ?? queryParam;
+
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [selectedLevel, setSelectedLevel] = useState<string>("All Levels");
   const [sortBy, setSortBy] = useState<string>("relevant");
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Scroll to grid on incoming search query from external navigation
+  useEffect(() => {
+    if (queryParam) {
+      gridTopRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [queryParam]);
+
   // Filter handlers
   const handleSearchChange = (query: string) => {
-    setSearchQuery(query);
+    setUserQuery(query);
     setCurrentPage(1);
   };
 
@@ -70,7 +80,7 @@ function CoursesContent() {
   };
 
   const handleResetFilters = () => {
-    setSearchQuery("");
+    setUserQuery("");
     setSelectedCategory("All");
     setSelectedLevel("All Levels");
     setSortBy("relevant");
@@ -81,7 +91,6 @@ function CoursesContent() {
   const filteredCourses = useMemo(() => {
     let result = [...COURSES_MOCK_DATA];
 
-    // 1. Search Query Filter
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim();
       result = result.filter(
@@ -93,7 +102,6 @@ function CoursesContent() {
       );
     }
 
-    // 2. Category Filter
     if (selectedCategory === "Featured") {
       result = result.filter((c) => c.isFeatured);
     } else if (selectedCategory !== "All") {
@@ -102,12 +110,10 @@ function CoursesContent() {
       );
     }
 
-    // 3. Level Filter
     if (selectedLevel !== "All Levels") {
       result = result.filter((c) => c.level === selectedLevel);
     }
 
-    // 4. Sort
     switch (sortBy) {
       case "rating":
         result.sort((a, b) => b.rating - a.rating);
@@ -152,7 +158,6 @@ function CoursesContent() {
 
   return (
     <div className="w-full bg-white min-h-screen">
-      {/* 1. Hero Search Banner */}
       <CourseHeroBanner
         searchQuery={searchQuery}
         onSearchChange={handleSearchChange}
@@ -163,10 +168,8 @@ function CoursesContent() {
         }}
       />
 
-      {/* Anchor for smooth scroll */}
       <div ref={gridTopRef} className="scroll-mt-24" />
 
-      {/* 2. Filter & Sort Toolbar */}
       <CourseFilterToolbar
         selectedCategory={selectedCategory}
         onCategoryChange={handleCategoryChange}
@@ -181,7 +184,7 @@ function CoursesContent() {
         sortOptions={SORT_OPTIONS}
       />
 
-      {/* 3. Main Course Cards Grid */}
+      {/* Main Course Cards Grid */}
       <CourseGrid
         courses={paginatedCourses}
         totalCoursesCount={filteredCourses.length}
@@ -190,7 +193,6 @@ function CoursesContent() {
         onResetFilters={handleResetFilters}
       />
 
-      {/* 4. Bottom Pagination */}
       <CoursePagination
         currentPage={currentPage}
         totalPages={totalPages}

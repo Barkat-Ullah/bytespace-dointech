@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import NMContainer from "../ui/Container";
@@ -67,12 +66,6 @@ const Category = () => {
           theme="light"
         />
 
-        {/* 
-          Responsive Category Grid:
-          - Mobile (< sm): 2 columns
-          - Tablet (sm, md): 3 columns
-          - Desktop (lg, xl): 6 columns in a single row
-        */}
         <div className="mt-10 sm:mt-12 md:mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 md:gap-6">
           {categories.map((cat) => (
             <Link
@@ -80,7 +73,6 @@ const Category = () => {
               href={cat.href}
               className="group flex flex-col items-center justify-center p-5 sm:p-6 md:p-7 bg-white rounded-2xl sm:rounded-3xl border border-shuttle-gray-200/80 shadow-sm hover:shadow-md hover:border-primary/80 hover:-translate-y-1.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-              {/* Category Icon */}
               <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                 <Image
                   src={cat.icon}
@@ -91,7 +83,6 @@ const Category = () => {
                 />
               </div>
 
-              {/* Category Label */}
               <span className="mt-3 sm:mt-4 text-sm sm:text-base font-semibold text-shuttle-gray-950 group-hover:text-primary transition-colors duration-200 text-center">
                 {cat.name}
               </span>

@@ -43,7 +43,6 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator, className }) 
         className
       )}
     >
-      {/* Top Profile Imagery with Frosted Glass Badges */}
       <div className="relative aspect-[1.48/1] w-full rounded-[22px] overflow-hidden bg-gray-100">
         <Link
           href={`/creators/${creator.slug}`}
@@ -63,14 +62,12 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator, className }) 
           />
         </Link>
 
-        {/* Creator Badge in top right */}
         <div className="absolute top-3 right-3 z-10 pointer-events-none">
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#d4fb20] text-black shadow-xs">
             {creator.badge}
           </span>
         </div>
 
-        {/* Translucent Frosted Glass Pills across bottom of photo */}
         <div className="absolute inset-x-0 bottom-0 p-3 sm:p-3.5 flex items-center justify-between gap-1.5 z-10 pointer-events-none">
           <span className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-gray-800 bg-white/85 backdrop-blur-md border border-white/50 shadow-xs whitespace-nowrap">
             <Users className="w-3.5 h-3.5 text-secondary" />
@@ -83,9 +80,7 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator, className }) 
         </div>
       </div>
 
-      {/* Creator Info */}
       <div className="flex flex-col flex-1 mt-5">
-        {/* Name & Rating */}
         <div className="flex items-center justify-between gap-2">
           <h3 className="font-bold text-gray-950 text-xl sm:text-[22px] tracking-tight leading-snug group-hover:text-[#003be2] transition-colors line-clamp-1">
             <Link href={`/creators/${creator.slug}`}>{creator.name}</Link>
@@ -98,24 +93,20 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({ creator, className }) 
           </div>
         </div>
 
-        {/* Username */}
         <p className="text-sm text-secondary font-semibold mt-1">
           {creator.username}
         </p>
 
-        {/* Short Bio / Role */}
         <p className="text-sm text-gray-500 font-normal mt-2 mb-4 line-clamp-2 leading-relaxed">
           {creator.shortBio || creator.role}
         </p>
 
-        {/* Category Pill */}
         <div className="mb-5 flex items-center justify-between">
           <span className="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#f3f4f6] text-gray-800">
             {creator.category}
           </span>
         </div>
 
-        {/* Action Row: View Profile + Follow Button */}
         <div className="mt-auto pt-4 border-t border-gray-100 flex items-center gap-2.5">
           <Link
             href={`/creators/${creator.slug}`}

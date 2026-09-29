@@ -64,7 +64,7 @@ export const CourseReviewsTab: React.FC<CourseReviewsTabProps> = ({ course }) =>
           <div className="w-full space-y-2">
             {breakdown.map((row) => (
               <div key={row.stars} className="flex items-center gap-3 text-xs text-gray-600">
-                {/* 5 mini stars representation */}
+                {/* mini stars representation */}
                 <div className="flex items-center gap-0.5 w-16 shrink-0">
                   {Array.from({ length: 5 }, (_, i) => (
                     <Star
@@ -79,7 +79,6 @@ export const CourseReviewsTab: React.FC<CourseReviewsTabProps> = ({ course }) =>
                   ))}
                 </div>
 
-                {/* Bar */}
                 <div className="flex-1 h-2 rounded-full bg-gray-200 overflow-hidden">
                   <div
                     className="h-full bg-[#d4fb20] rounded-full"
@@ -87,7 +86,6 @@ export const CourseReviewsTab: React.FC<CourseReviewsTabProps> = ({ course }) =>
                   />
                 </div>
 
-                {/* Count */}
                 <span className="w-8 text-right font-medium text-gray-500">
                   {row.count}
                 </span>

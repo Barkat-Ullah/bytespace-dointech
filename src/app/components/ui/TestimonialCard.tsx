@@ -26,7 +26,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         className
       )}
     >
-      {/* User Avatar */}
       <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shrink-0 transition-transform duration-300 group-hover:scale-105">
         <Image
           src={avatar}
@@ -37,7 +36,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         />
       </div>
 
-      {/* User Details */}
       <div className="mt-4 sm:mt-5">
         <h3 className="font-bold text-base sm:text-lg text-shuttle-gray-950 group-hover:text-secondary transition-colors duration-200">
           {name}
@@ -46,8 +44,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           {role}
         </p>
       </div>
-
-      {/* Quote */}
       <blockquote className="mt-4 sm:mt-5 text-xs sm:text-sm text-shuttle-gray-700 leading-relaxed flex-1">
         {quote}
       </blockquote>

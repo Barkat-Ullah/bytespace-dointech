@@ -37,20 +37,16 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
   return (
     <section className="relative w-full bg-secondary bg-[url('/common-bg.png')] bg-cover bg-center bg-no-repeat pt-10 sm:pt-12 md:pt-14 pb-12 sm:pb-14 md:pb-16 overflow-visible">
       <NMContainer>
-        {/* Top Header Row */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8 sm:mb-10">
           <div className="max-w-3xl">
-            {/* Course Title */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-white tracking-tight leading-[1.2]">
               {course.title}: A Comprehensive Guide
             </h1>
 
-            {/* Subtitle */}
             <p className="mt-2 text-sm sm:text-base text-white/85 leading-relaxed">
               {course.subtitle}
             </p>
 
-            {/* Author */}
             <p className="mt-2 text-xs sm:text-sm text-white/70">
               by{" "}
               <Link
@@ -61,21 +57,17 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
               </Link>
             </p>
 
-            {/* Metadata Badges */}
             <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
-              {/* Level */}
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/15 backdrop-blur-md text-white border border-white/20">
                 <Compass className="w-3.5 h-3.5 text-[#d4fb20]" />
                 {course.level}
               </span>
 
-              {/* Rating */}
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/15 backdrop-blur-md text-white border border-white/20">
                 <Star className="w-3.5 h-3.5 fill-[#d4fb20] text-[#d4fb20]" />
                 {course.rating.toFixed(1)} ({course.reviewsCount} reviews)
               </span>
 
-              {/* Students */}
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/15 backdrop-blur-md text-white border border-white/20">
                 <Users className="w-3.5 h-3.5 text-[#d4fb20]" />
                 {course.studentsCount} Students
@@ -83,7 +75,6 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
             </div>
           </div>
 
-          {/* Share Button (Lime Pill) */}
           <div className="shrink-0 self-start md:self-auto">
             <button
               type="button"
@@ -98,7 +89,6 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
 
         {/* Video Player & Right Sidebar Card Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Video Preview ONLY (No extra buttons under it) */}
           <div className="lg:col-span-7">
             <div className="relative aspect-[16/11] sm:aspect-[16/10] w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-black/30 border border-white/20 shadow-2xl group">
               {isPlaying ? (
@@ -128,7 +118,6 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
                   />
                   <div className="absolute inset-0 bg-black/25 backdrop-brightness-95 pointer-events-none" />
 
-                  {/* Play Button */}
                   <button
                     type="button"
                     onClick={() => setIsPlaying(true)}
@@ -145,12 +134,10 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
           {/* Right Column: Floating Sidebar Card with outer wrapper */}
           <div className="lg:col-span-5 relative z-20 lg:-mb-[420px]">
             <div className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-200/90 shadow-2xl text-gray-900">
-              {/* Header: Total lessons and duration */}
               <h2 className="text-xl sm:text-2xl font-bold text-gray-950 tracking-tight">
                 112 Lessons (24 hours)
               </h2>
 
-              {/* Sample Lessons Preview List */}
               <div className="mt-4 space-y-2.5 pb-4 border-b border-gray-100">
                 <div className="flex items-center justify-between text-xs sm:text-sm py-1">
                   <span className="font-medium text-gray-800 line-clamp-1">
@@ -179,12 +166,10 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
                 <p className="text-xs text-gray-400 pt-1">99 more videos</p>
               </div>
 
-              {/* Callout prompt */}
               <p className="mt-4 text-xs sm:text-sm text-gray-500 leading-relaxed">
                 Ready to Dive In? Enroll Now and Start Building Your Digital Future!
               </p>
 
-              {/* Price Row */}
               <div className="mt-4 flex items-baseline">
                 <span className="text-[#003be2] font-black text-3xl sm:text-4xl tracking-tight">
                   ${course.price}
@@ -194,7 +179,6 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
                 </span>
               </div>
 
-              {/* Enroll Now Button */}
               <button
                 type="button"
                 onClick={() => showEnrollComingSoonAlert(course.title)}
