@@ -34,7 +34,7 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
   };
 
   return (
-    <section className="relative w-full bg-secondary bg-[url('/common-bg.png')] bg-cover bg-center bg-no-repeat pt-10 sm:pt-12 md:pt-14 pb-12 sm:pb-14 md:pb-16 overflow-hidden">
+    <section className="relative w-full bg-secondary bg-[url('/common-bg.png')] bg-cover bg-center bg-no-repeat pt-10 sm:pt-12 md:pt-14 pb-12 sm:pb-14 md:pb-16 overflow-visible">
       <NMContainer>
         {/* Top Header Row */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8 sm:mb-10">
@@ -141,121 +141,123 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
             </div>
           </div>
 
-          {/* Right Column: Floating Sidebar Card */}
-          <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border border-gray-200/90 shadow-2xl text-gray-900">
-            {/* Header: Total lessons and duration */}
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-950 tracking-tight">
-              112 Lessons (24 hours)
-            </h2>
+          {/* Right Column: Floating Sidebar Card with outer wrapper */}
+          <div className="lg:col-span-5 relative z-20 lg:-mb-[420px]">
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-200/90 shadow-2xl text-gray-900">
+              {/* Header: Total lessons and duration */}
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-950 tracking-tight">
+                112 Lessons (24 hours)
+              </h2>
 
-            {/* Sample Lessons Preview List */}
-            <div className="mt-4 space-y-2.5 pb-4 border-b border-gray-100">
-              <div className="flex items-center justify-between text-xs sm:text-sm py-1">
-                <span className="font-medium text-gray-800 line-clamp-1">
-                  01. Introduction to Digital Assets
-                </span>
-                <span className="text-[#003be2] font-semibold text-xs shrink-0 cursor-pointer hover:underline">
-                  12 mins
-                </span>
-              </div>
-              <div className="flex items-center justify-between text-xs sm:text-sm py-1">
-                <span className="font-medium text-gray-800 line-clamp-1">
-                  02. Design Principles for Impact
-                </span>
-                <span className="text-[#003be2] font-semibold text-xs shrink-0 cursor-pointer hover:underline">
-                  21 mins
-                </span>
-              </div>
-              <div className="flex items-center justify-between text-xs sm:text-sm py-1">
-                <span className="font-medium text-gray-800 line-clamp-1">
-                  03. Advanced Techniques in Digital Creation
-                </span>
-                <span className="text-[#003be2] font-semibold text-xs shrink-0 cursor-pointer hover:underline">
-                  16 mins
-                </span>
-              </div>
-              <p className="text-xs text-gray-400 pt-1">99 more videos</p>
-            </div>
-
-            {/* Callout prompt */}
-            <p className="mt-4 text-xs sm:text-sm text-gray-500 leading-relaxed">
-              Ready to Dive In? Enroll Now and Start Building Your Digital Future!
-            </p>
-
-            {/* Price Row */}
-            <div className="mt-4 flex items-baseline">
-              <span className="text-[#003be2] font-black text-3xl sm:text-4xl tracking-tight">
-                ${course.price}
-              </span>
-              <span className="text-sm text-gray-400 font-normal ml-1">
-                {course.pricePeriod}
-              </span>
-            </div>
-
-            {/* Enroll Now Button */}
-            <button
-              type="button"
-              className="mt-4 w-full py-3.5 rounded-full bg-[#d4fb20] text-black font-bold text-sm sm:text-base hover:bg-[#c9f116] transition-colors shadow-sm text-center block cursor-pointer select-none"
-            >
-              Enroll Now
-            </button>
-
-            {/* "This course include" checklist */}
-            <div className="mt-6 pt-5 border-t border-gray-100">
-              <h3 className="font-bold text-sm text-gray-950 mb-3">
-                This course include
-              </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm text-gray-700">
-                <li className="flex items-center gap-2.5">
-                  <FileText className="w-4 h-4 text-secondary shrink-0" />
-                  <span>Learning Resources</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <Video className="w-4 h-4 text-secondary shrink-0" />
-                  <span>Quality Lesson Videos</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <Award className="w-4 h-4 text-secondary shrink-0" />
-                  <span>Certificate of Completion</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <MessageSquare className="w-4 h-4 text-secondary shrink-0" />
-                  <span>Private Consultation</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Instructor Card */}
-            <div className="mt-6 pt-5 border-t border-gray-100 flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden border border-gray-200 shrink-0">
-                  <Image
-                    src={course.author.avatar}
-                    alt={course.author.name}
-                    fill
-                    sizes="44px"
-                    className="object-cover"
-                  />
+              {/* Sample Lessons Preview List */}
+              <div className="mt-4 space-y-2.5 pb-4 border-b border-gray-100">
+                <div className="flex items-center justify-between text-xs sm:text-sm py-1">
+                  <span className="font-medium text-gray-800 line-clamp-1">
+                    01. Introduction to Digital Assets
+                  </span>
+                  <span className="text-[#003be2] font-semibold text-xs shrink-0 cursor-pointer hover:underline">
+                    12 mins
+                  </span>
                 </div>
-                <div>
-                  <h4 className="font-bold text-sm text-gray-950 capitalize">
-                    {course.author.name}
-                  </h4>
-                  <p className="text-xs text-gray-400">{course.author.title}</p>
+                <div className="flex items-center justify-between text-xs sm:text-sm py-1">
+                  <span className="font-medium text-gray-800 line-clamp-1">
+                    02. Design Principles for Impact
+                  </span>
+                  <span className="text-[#003be2] font-semibold text-xs shrink-0 cursor-pointer hover:underline">
+                    21 mins
+                  </span>
                 </div>
+                <div className="flex items-center justify-between text-xs sm:text-sm py-1">
+                  <span className="font-medium text-gray-800 line-clamp-1">
+                    03. Advanced Techniques in Digital Creation
+                  </span>
+                  <span className="text-[#003be2] font-semibold text-xs shrink-0 cursor-pointer hover:underline">
+                    16 mins
+                  </span>
+                </div>
+                <p className="text-xs text-gray-400 pt-1">99 more videos</p>
               </div>
 
-              <p className="text-xs text-gray-500 leading-relaxed">
+              {/* Callout prompt */}
+              <p className="mt-4 text-xs sm:text-sm text-gray-500 leading-relaxed">
                 Ready to Dive In? Enroll Now and Start Building Your Digital Future!
               </p>
 
-              {/* See Full Profile Button -> Navigates to Creator Profile */}
-              <Link
-                href="/creators/purepearl-studio"
-                className="w-full py-2.5 rounded-full border border-gray-200 text-xs sm:text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors text-center block cursor-pointer"
+              {/* Price Row */}
+              <div className="mt-4 flex items-baseline">
+                <span className="text-[#003be2] font-black text-3xl sm:text-4xl tracking-tight">
+                  ${course.price}
+                </span>
+                <span className="text-sm text-gray-400 font-normal ml-1">
+                  {course.pricePeriod}
+                </span>
+              </div>
+
+              {/* Enroll Now Button */}
+              <button
+                type="button"
+                className="mt-4 w-full py-3.5 rounded-full bg-[#d4fb20] text-black font-bold text-sm sm:text-base hover:bg-[#c9f116] transition-colors shadow-sm text-center block cursor-pointer select-none"
               >
-                See Full Profile
-              </Link>
+                Enroll Now
+              </button>
+
+              {/* "This course include" checklist */}
+              <div className="mt-6 pt-5 border-t border-gray-100">
+                <h3 className="font-bold text-sm text-gray-950 mb-3">
+                  This course include
+                </h3>
+                <ul className="space-y-2.5 text-xs sm:text-sm text-gray-700">
+                  <li className="flex items-center gap-2.5">
+                    <FileText className="w-4 h-4 text-secondary shrink-0" />
+                    <span>Learning Resources</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Video className="w-4 h-4 text-secondary shrink-0" />
+                    <span>Quality Lesson Videos</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Award className="w-4 h-4 text-secondary shrink-0" />
+                    <span>Certificate of Completion</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <MessageSquare className="w-4 h-4 text-secondary shrink-0" />
+                    <span>Private Consultation</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Instructor Card */}
+              <div className="mt-6 pt-5 border-t border-gray-100 flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-11 h-11 rounded-full overflow-hidden border border-gray-200 shrink-0">
+                    <Image
+                      src={course.author.avatar}
+                      alt={course.author.name}
+                      fill
+                      sizes="44px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-gray-950 capitalize">
+                      {course.author.name}
+                    </h4>
+                    <p className="text-xs text-gray-400">{course.author.title}</p>
+                  </div>
+                </div>
+
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Ready to Dive In? Enroll Now and Start Building Your Digital Future!
+                </p>
+
+                {/* See Full Profile Button -> Navigates to Creator Profile */}
+                <Link
+                  href="/creators/purepearl-studio"
+                  className="w-full py-2.5 rounded-full border border-gray-200 text-xs sm:text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors text-center block cursor-pointer"
+                >
+                  See Full Profile
+                </Link>
+              </div>
             </div>
           </div>
         </div>
