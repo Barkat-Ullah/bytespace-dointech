@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import NMContainer from "../ui/Container";
 import Button from "../ui/Button";
+import { showCreatorComingSoonAlert } from "@/lib/alerts";
 
 interface FooterLink {
   label: string;
@@ -142,12 +143,22 @@ const Footer = () => {
               <ul key={groupIdx} className="space-y-3 sm:space-y-3.5">
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-xs sm:text-sm text-shuttle-gray-700 hover:text-secondary font-normal transition-colors duration-200 block focus-visible:outline-none focus-visible:text-secondary"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.label === "Become a Creator" ? (
+                      <button
+                        type="button"
+                        onClick={showCreatorComingSoonAlert}
+                        className="text-xs sm:text-sm text-shuttle-gray-700 hover:text-secondary font-normal transition-colors duration-200 block text-left cursor-pointer focus-visible:outline-none focus-visible:text-secondary"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-xs sm:text-sm text-shuttle-gray-700 hover:text-secondary font-normal transition-colors duration-200 block focus-visible:outline-none focus-visible:text-secondary"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
