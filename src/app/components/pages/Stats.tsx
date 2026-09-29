@@ -92,6 +92,7 @@ const Stats = () => {
                   alt="Course creator managing analytics and student reviews on ByteSpace"
                   width={560}
                   height={680}
+                  loading="eager"
                   sizes="(max-width: 1024px) 100vw, 500px"
                   className="w-full h-auto object-contain drop-shadow-xl select-none"
                 />
