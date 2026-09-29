@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Share2,
   Star,
@@ -11,7 +12,6 @@ import {
   Video,
   Award,
   MessageSquare,
-  Sparkles,
   Compass,
 } from "lucide-react";
 import NMContainer from "@/app/components/ui/Container";
@@ -34,13 +34,13 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
   };
 
   return (
-    <section className="relative w-full bg-secondary bg-[url('/common-bg.png')] bg-cover bg-center bg-no-repeat pt-10 sm:pt-14 md:pt-16 pb-16 sm:pb-20 md:pb-24 overflow-hidden">
+    <section className="relative w-full bg-secondary bg-[url('/common-bg.png')] bg-cover bg-center bg-no-repeat pt-10 sm:pt-12 md:pt-14 pb-12 sm:pb-14 md:pb-16 overflow-hidden">
       <NMContainer>
         {/* Top Header Row */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8 sm:mb-10">
           <div className="max-w-3xl">
             {/* Course Title */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold text-white tracking-tight leading-[1.2]">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-white tracking-tight leading-[1.2]">
               {course.title}: A Comprehensive Guide
             </h1>
 
@@ -52,12 +52,15 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
             {/* Author */}
             <p className="mt-2 text-xs sm:text-sm text-white/70">
               by{" "}
-              <span className="text-white font-medium hover:underline cursor-pointer">
+              <Link
+                href="/creators/purepearl-studio"
+                className="text-white font-medium hover:underline cursor-pointer"
+              >
                 {course.author.name}
-              </span>
+              </Link>
             </p>
 
-            {/* Metadata Pills */}
+            {/* Metadata Badges */}
             <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
               {/* Level */}
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/15 backdrop-blur-md text-white border border-white/20">
@@ -92,12 +95,11 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
           </div>
         </div>
 
-        {/* Two-Column Grid: Video Preview & Right Sticky Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start">
-          {/* Left Column (Video Preview + View Propeller Button) - 7 cols */}
-          <div className="lg:col-span-7 flex flex-col gap-4">
-            {/* Video Player Box */}
-            <div className="relative aspect-[16/10] w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-black/30 border border-white/20 shadow-2xl group">
+        {/* Video Player & Right Sidebar Card Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Video Preview ONLY (No extra buttons under it) */}
+          <div className="lg:col-span-7">
+            <div className="relative aspect-[16/11] sm:aspect-[16/10] w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-black/30 border border-white/20 shadow-2xl group">
               {isPlaying ? (
                 <div className="w-full h-full flex flex-col items-center justify-center bg-gray-950 text-white p-6 text-center">
                   <Video className="w-12 h-12 text-[#d4fb20] animate-pulse mb-3" />
@@ -123,7 +125,6 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
                     priority
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  {/* Subtle dark vignette overlay */}
                   <div className="absolute inset-0 bg-black/25 backdrop-brightness-95 pointer-events-none" />
 
                   {/* Play Button */}
@@ -138,33 +139,13 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
                 </>
               )}
             </div>
-
-            {/* "View Propeller" Action Button on Left Side */}
-            <div className="flex items-center gap-3 pt-2">
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#d4fb20] text-black font-extrabold text-sm sm:text-base hover:bg-[#c9f116] transition-all shadow-lg hover:shadow-primary/30 cursor-pointer"
-              >
-                <Sparkles className="w-4 h-4 text-black" />
-                <span>View Propeller</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setIsPlaying((p) => !p)}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/15 backdrop-blur-md text-white font-semibold text-xs sm:text-sm hover:bg-white/25 border border-white/20 transition-all cursor-pointer"
-              >
-                <Play className="w-3.5 h-3.5 fill-current" />
-                <span>Preview Course</span>
-              </button>
-            </div>
           </div>
 
-          {/* Right Column (Floating Sticky Info & Enrollment Card) - 5 cols */}
+          {/* Right Column: Floating Sidebar Card */}
           <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border border-gray-200/90 shadow-2xl text-gray-900">
             {/* Header: Total lessons and duration */}
             <h2 className="text-xl sm:text-2xl font-bold text-gray-950 tracking-tight">
-              112 Lessons ({course.duration})
+              112 Lessons (24 hours)
             </h2>
 
             {/* Sample Lessons Preview List */}
@@ -173,7 +154,7 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
                 <span className="font-medium text-gray-800 line-clamp-1">
                   01. Introduction to Digital Assets
                 </span>
-                <span className="text-secondary font-semibold text-xs shrink-0 cursor-pointer hover:underline">
+                <span className="text-[#003be2] font-semibold text-xs shrink-0 cursor-pointer hover:underline">
                   12 mins
                 </span>
               </div>
@@ -181,7 +162,7 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
                 <span className="font-medium text-gray-800 line-clamp-1">
                   02. Design Principles for Impact
                 </span>
-                <span className="text-secondary font-semibold text-xs shrink-0 cursor-pointer hover:underline">
+                <span className="text-[#003be2] font-semibold text-xs shrink-0 cursor-pointer hover:underline">
                   21 mins
                 </span>
               </div>
@@ -189,14 +170,14 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
                 <span className="font-medium text-gray-800 line-clamp-1">
                   03. Advanced Techniques in Digital Creation
                 </span>
-                <span className="text-secondary font-semibold text-xs shrink-0 cursor-pointer hover:underline">
+                <span className="text-[#003be2] font-semibold text-xs shrink-0 cursor-pointer hover:underline">
                   16 mins
                 </span>
               </div>
-              <p className="text-xs text-gray-400 pt-1">95 more videos</p>
+              <p className="text-xs text-gray-400 pt-1">99 more videos</p>
             </div>
 
-            {/* Motivational prompt */}
+            {/* Callout prompt */}
             <p className="mt-4 text-xs sm:text-sm text-gray-500 leading-relaxed">
               Ready to Dive In? Enroll Now and Start Building Your Digital Future!
             </p>
@@ -268,12 +249,13 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
                 Ready to Dive In? Enroll Now and Start Building Your Digital Future!
               </p>
 
-              <button
-                type="button"
-                className="w-full py-2 sm:py-2.5 rounded-full border border-gray-200 text-xs sm:text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors cursor-pointer select-none text-center"
+              {/* See Full Profile Button -> Navigates to Creator Profile */}
+              <Link
+                href="/creators/purepearl-studio"
+                className="w-full py-2.5 rounded-full border border-gray-200 text-xs sm:text-sm font-semibold text-gray-800 hover:bg-gray-50 transition-colors text-center block cursor-pointer"
               >
                 See Full Profile
-              </button>
+              </Link>
             </div>
           </div>
         </div>

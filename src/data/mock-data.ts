@@ -280,7 +280,7 @@ export const COURSES_MOCK_DATA: Course[] = [
     sneakPeekImages: [
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
@@ -324,7 +324,7 @@ export const COURSES_MOCK_DATA: Course[] = [
     sneakPeekImages: [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
@@ -367,7 +367,7 @@ export const COURSES_MOCK_DATA: Course[] = [
     enrolledExtraCount: 26,
     sneakPeekImages: [
       "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
     ],
@@ -413,7 +413,7 @@ export const COURSES_MOCK_DATA: Course[] = [
       "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
     includes: sampleIncludes,
@@ -456,7 +456,7 @@ export const COURSES_MOCK_DATA: Course[] = [
     sneakPeekImages: [
       "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
@@ -629,7 +629,7 @@ export const COURSES_MOCK_DATA: Course[] = [
     sneakPeekImages: [
       "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
@@ -673,7 +673,7 @@ export const COURSES_MOCK_DATA: Course[] = [
       "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
     includes: sampleIncludes,
@@ -759,7 +759,7 @@ export const COURSES_MOCK_DATA: Course[] = [
       "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
     includes: sampleIncludes,
@@ -802,7 +802,7 @@ export const COURSES_MOCK_DATA: Course[] = [
       "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
     includes: sampleIncludes,
@@ -843,7 +843,7 @@ export const COURSES_MOCK_DATA: Course[] = [
     enrolledExtraCount: 45,
     sneakPeekImages: [
       "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&q=80",
     ],
@@ -888,7 +888,7 @@ export const COURSES_MOCK_DATA: Course[] = [
       "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
     includes: sampleIncludes,
@@ -930,7 +930,7 @@ export const COURSES_MOCK_DATA: Course[] = [
     sneakPeekImages: [
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
@@ -1017,7 +1017,7 @@ export const COURSES_MOCK_DATA: Course[] = [
       "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
     includes: sampleIncludes,
@@ -1060,7 +1060,7 @@ export const COURSES_MOCK_DATA: Course[] = [
       "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1581291518655-9523c932694b?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=400&q=80",
     ],
     keyPoints: sampleKeyPoints,
     includes: sampleIncludes,
@@ -1074,3 +1074,41 @@ export const getCourseByIdOrSlug = (idOrSlug: string): Course | undefined => {
     (c) => c.id === idOrSlug || c.slug === idOrSlug
   );
 };
+
+export interface Creator {
+  id: string;
+  slug: string;
+  name: string;
+  badge: string;
+  role: string;
+  avatar: string;
+  bio: string[];
+  productsCount: number;
+  followersCount: number;
+}
+
+export const CREATORS_MOCK_DATA: Creator[] = [
+  {
+    id: "creator-1",
+    slug: "purepearl-studio",
+    name: "PurePearl Studio",
+    badge: "Creator",
+    role: "Passionate UI/UX, Web designer",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80",
+    bio: [
+      "Welcome to the creative world of PurePearl Studio. Here, you'll discover the passion, expertise, and inspiration that drive my creative journey. Let's explore and learn together!",
+      "Dive into my creative portfolio, showcasing a glimpse of my artistic endeavors. From digital designs to multimedia projects, each piece tells a unique story. Explore the world of creativity with me.",
+    ],
+    productsCount: 3,
+    followersCount: 12,
+  },
+];
+
+export const getCreatorBySlug = (slug: string): Creator => {
+  return (
+    CREATORS_MOCK_DATA.find((c) => c.slug === slug) ||
+    CREATORS_MOCK_DATA[0]
+  );
+};
+
