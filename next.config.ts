@@ -1,7 +1,28 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/sign-in",
+        destination: "/signin",
+        permanent: true,
+      },
+      {
+        source: "/join-us",
+        destination: "/signup",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
