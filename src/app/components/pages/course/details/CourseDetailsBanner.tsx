@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import NMContainer from "@/app/components/ui/Container";
 import { Course } from "@/data/mock-data";
+import { showEnrollComingSoonAlert } from "@/lib/alerts";
 
 export interface CourseDetailsBannerProps {
   course: Course;
@@ -196,6 +197,7 @@ export const CourseDetailsBanner: React.FC<CourseDetailsBannerProps> = ({ course
               {/* Enroll Now Button */}
               <button
                 type="button"
+                onClick={() => showEnrollComingSoonAlert(course.title)}
                 className="mt-4 w-full py-3.5 rounded-full bg-[#d4fb20] text-black font-bold text-sm sm:text-base hover:bg-[#c9f116] transition-colors shadow-sm text-center block cursor-pointer select-none"
               >
                 Enroll Now

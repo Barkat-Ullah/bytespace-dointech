@@ -3,10 +3,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
 import Button from "@/app/components/ui/Button";
+import { showSignUpSuccessAlert } from "@/lib/alerts";
 
 const SignUpPage = () => {
+  const router = useRouter();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +17,9 @@ const SignUpPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Registering:", { fullName, email, password });
+    showSignUpSuccessAlert(() => {
+      router.push("/");
+    });
   };
 
   return (
@@ -91,7 +96,6 @@ const SignUpPage = () => {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="Jamie Davis"
-                required
                 className="w-full bg-white border border-shuttle-gray-200 rounded-xl px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm text-shuttle-gray-950 placeholder:text-shuttle-gray-400 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
               />
             </div>
@@ -110,7 +114,6 @@ const SignUpPage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="designer@example.com"
-                required
                 className="w-full bg-white border border-shuttle-gray-200 rounded-xl px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm text-shuttle-gray-950 placeholder:text-shuttle-gray-400 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
               />
             </div>
@@ -130,7 +133,6 @@ const SignUpPage = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  required
                   className="w-full bg-white border border-shuttle-gray-200 rounded-xl px-3.5 py-2 sm:py-2.5 pr-10 text-xs sm:text-sm text-shuttle-gray-950 placeholder:text-shuttle-gray-400 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
                 />
                 <button

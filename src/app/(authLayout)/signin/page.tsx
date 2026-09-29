@@ -3,17 +3,22 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
 import Button from "@/app/components/ui/Button";
+import { showSignInSuccessAlert } from "@/lib/alerts";
 
 const SignInPage = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Signing in:", { email, password });
+    showSignInSuccessAlert(() => {
+      router.push("/");
+    });
   };
 
   return (
@@ -91,7 +96,6 @@ const SignInPage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="designer@example.com"
-                required
                 className="w-full bg-white border border-shuttle-gray-200 rounded-xl px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm text-shuttle-gray-950 placeholder:text-shuttle-gray-400 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
               />
             </div>
@@ -111,7 +115,6 @@ const SignInPage = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  required
                   className="w-full bg-white border border-shuttle-gray-200 rounded-xl px-3.5 py-2 sm:py-2.5 pr-10 text-xs sm:text-sm text-shuttle-gray-950 placeholder:text-shuttle-gray-400 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
                 />
                 <button
@@ -155,8 +158,9 @@ const SignInPage = () => {
             {/* Facebook */}
             <button
               type="button"
+              onClick={() => showSignInSuccessAlert(() => router.push("/"))}
               aria-label="Sign in with Facebook"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-shuttle-gray-200 flex items-center justify-center hover:bg-shuttle-gray-50 hover:border-shuttle-gray-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-shuttle-gray-200 flex items-center justify-center hover:bg-shuttle-gray-50 hover:border-shuttle-gray-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary cursor-pointer"
             >
               <svg
                 className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#1877F2]"
@@ -170,8 +174,9 @@ const SignInPage = () => {
             {/* Google */}
             <button
               type="button"
+              onClick={() => showSignInSuccessAlert(() => router.push("/"))}
               aria-label="Sign in with Google"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-shuttle-gray-200 flex items-center justify-center hover:bg-shuttle-gray-50 hover:border-shuttle-gray-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-shuttle-gray-200 flex items-center justify-center hover:bg-shuttle-gray-50 hover:border-shuttle-gray-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary cursor-pointer"
             >
               <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5" viewBox="0 0 24 24">
                 <path
