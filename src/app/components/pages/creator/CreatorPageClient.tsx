@@ -116,25 +116,9 @@ export const CreatorPageClient: React.FC = () => {
       {/* 3. Main Creator Cards Grid (3 per row on desktop) */}
       <section className="w-full bg-white py-10 sm:py-12 md:py-16">
         <NMContainer>
-          {/* Header Count Row */}
-          <div className="mb-6 sm:mb-8 flex items-center justify-between text-xs sm:text-sm text-gray-500">
-            <span>
-              Showing{" "}
-              <strong className="text-gray-900 font-semibold">
-                {filteredCreators.length === 0
-                  ? 0
-                  : (currentPage - 1) * ITEMS_PER_PAGE + 1}
-                -
-                {Math.min(currentPage * ITEMS_PER_PAGE, filteredCreators.length)}
-              </strong>{" "}
-              of{" "}
-              <strong className="text-gray-900 font-semibold">
-                {filteredCreators.length}
-              </strong>{" "}
-              creators
-            </span>
-
-            {(searchQuery.trim() !== "" || selectedCategory !== "All") && (
+          {/* Active Filter Reset Button */}
+          {(searchQuery.trim() !== "" || selectedCategory !== "All") && (
+            <div className="mb-6 flex items-center justify-end">
               <button
                 type="button"
                 onClick={handleReset}
@@ -142,8 +126,8 @@ export const CreatorPageClient: React.FC = () => {
               >
                 Reset Filters
               </button>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Responsive Creator Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
           {paginatedCreators.length > 0 ? (
