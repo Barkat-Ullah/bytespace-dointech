@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -14,9 +14,17 @@ const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Pre-warm the home route in Next.js router cache to ensure instant transition
+  useEffect(() => {
+    router.prefetch("/");
+  }, [router]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     showSignUpSuccessAlert(() => {
       router.push("/");
     });
@@ -156,9 +164,10 @@ const SignUpPage = () => {
                 type="submit"
                 variant="primary"
                 size="sm"
-                className="font-bold text-xs sm:text-sm px-7 py-2 rounded-full shadow-sm hover:shadow-primary/30"
+                disabled={isSubmitting}
+                className="font-bold text-xs sm:text-sm px-7 py-2 rounded-full shadow-sm hover:shadow-primary/30 disabled:opacity-75 cursor-pointer"
               >
-                Continue
+                {isSubmitting ? "Creating..." : "Continue"}
               </Button>
             </div>
           </form>

@@ -1,12 +1,10 @@
-import { getCreatorBySlug } from "@/data/mock-data";
-import CreatorProfileClient from "@/app/components/pages/creator/CreatorProfileClient";
+import { CreatorPageClient } from "@/app/components/pages/creator";
 
 export const metadata = {
-  title: "Creators | ByteSpace",
-  description: "Explore creators and instructors on ByteSpace.",
+  title: "Creators & Courses | ByteSpace",
+  description: "Find your next course created by leading creators on ByteSpace.",
 };
 
-export default function CreatorsDefaultPage() {
-  const creator = getCreatorBySlug("purepearl-studio");
-  return <CreatorProfileClient creator={creator} />;
+export default function CreatorsPage() {
+  return <CreatorPageClient />;
 }

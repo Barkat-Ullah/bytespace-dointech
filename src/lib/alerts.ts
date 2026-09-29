@@ -47,9 +47,25 @@ export const showEnrollComingSoonAlert = (courseTitle?: string) => {
 
 /**
  * Triggers a responsive SweetAlert modal for successful sign-in
- * and calls onComplete (typically redirecting to home).
+ * and transitions to the target route smoothly while the alert
+ * overlay remains active, preventing any right-side reload/flicker.
  */
 export const showSignInSuccessAlert = (onComplete?: () => void) => {
+  let isNavigating = false;
+
+  const triggerRedirect = () => {
+    if (isNavigating) return;
+    isNavigating = true;
+    if (onComplete) {
+      onComplete();
+    }
+    // Give Next.js client-side router a brief moment to mount the target layout
+    // before cleanly dismissing SweetAlert
+    setTimeout(() => {
+      Swal.close();
+    }, 700);
+  };
+
   Swal.fire({
     title: "Signed In Successfully!",
     text: "Welcome back to ByteSpace! Redirecting to home...",
@@ -57,22 +73,46 @@ export const showSignInSuccessAlert = (onComplete?: () => void) => {
     iconColor: "#003be2",
     confirmButtonText: "Continue",
     background: "#ffffff",
-    timer: 2000,
+    timer: 1600,
     timerProgressBar: true,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
     customClass: commonCustomClass,
     buttonsStyling: false,
-  }).then(() => {
-    if (onComplete) {
-      onComplete();
+    willClose: () => {
+      triggerRedirect();
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      triggerRedirect();
     }
   });
+
+  // Automatically start navigation smoothly while SweetAlert is showing
+  setTimeout(() => {
+    triggerRedirect();
+  }, 900);
 };
 
 /**
  * Triggers a responsive SweetAlert modal for successful account creation
- * and calls onComplete (typically redirecting to home).
+ * and transitions to the target route smoothly while the alert
+ * overlay remains active, preventing any right-side reload/flicker.
  */
 export const showSignUpSuccessAlert = (onComplete?: () => void) => {
+  let isNavigating = false;
+
+  const triggerRedirect = () => {
+    if (isNavigating) return;
+    isNavigating = true;
+    if (onComplete) {
+      onComplete();
+    }
+    setTimeout(() => {
+      Swal.close();
+    }, 700);
+  };
+
   Swal.fire({
     title: "Account Created!",
     text: "Welcome to ByteSpace! Redirecting to home...",
@@ -80,13 +120,23 @@ export const showSignUpSuccessAlert = (onComplete?: () => void) => {
     iconColor: "#003be2",
     confirmButtonText: "Get Started",
     background: "#ffffff",
-    timer: 2000,
+    timer: 1600,
     timerProgressBar: true,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
     customClass: commonCustomClass,
     buttonsStyling: false,
-  }).then(() => {
-    if (onComplete) {
-      onComplete();
+    willClose: () => {
+      triggerRedirect();
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      triggerRedirect();
     }
   });
+
+  // Automatically start navigation smoothly while SweetAlert is showing
+  setTimeout(() => {
+    triggerRedirect();
+  }, 900);
 };
