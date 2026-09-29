@@ -46,6 +46,23 @@ export const showEnrollComingSoonAlert = (courseTitle?: string) => {
 };
 
 /**
+ * Triggers a responsive SweetAlert modal informing the user that
+ * checkout functionality is coming soon.
+ */
+export const showCheckoutComingSoonAlert = () => {
+  Swal.fire({
+    title: "Coming Soon!",
+    text: "Checkout functionality will be available soon.",
+    icon: "info",
+    iconColor: "#003be2",
+    confirmButtonText: "OK",
+    background: "#ffffff",
+    customClass: commonCustomClass,
+    buttonsStyling: false,
+  });
+};
+
+/**
  * Triggers a responsive SweetAlert modal for successful sign-in
  * and transitions to the target route smoothly while the alert
  * overlay remains active, preventing any right-side reload/flicker.

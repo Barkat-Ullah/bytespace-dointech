@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import NMContainer from "../ui/Container";
 import Button from "../ui/Button";
+import CartSidebar from "./CartSidebar";
 import { cn } from "@/lib/utils";
 
 interface NavLinkItem {
@@ -24,6 +25,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Track scroll position to enhance navbar with subtle backdrop blur when scrolling
   useEffect(() => {
@@ -111,25 +113,30 @@ const Navbar = () => {
               </Button>
             </Link>
 
-            <Link
-              href="/cart"
-              aria-label="View Cart"
-              className="relative p-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            <button
+              type="button"
+              onClick={() => setIsCartOpen(true)}
+              aria-label="View Shopping Cart"
+              className="relative p-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer select-none"
             >
               <ShoppingBag className="w-5 h-5" />
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#d4fb20]" />
               <span className="sr-only">Shopping Cart</span>
-            </Link>
+            </button>
           </div>
 
 
           <div className="flex sm:hidden items-center gap-2">
-            <Link
-              href="/cart"
-              aria-label="View Cart"
-              className="p-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-colors duration-200"
+            <button
+              type="button"
+              onClick={() => setIsCartOpen(true)}
+              aria-label="View Shopping Cart"
+              className="relative p-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-colors duration-200 cursor-pointer select-none"
             >
               <ShoppingBag className="w-5 h-5" />
-            </Link>
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#d4fb20]" />
+              <span className="sr-only">Shopping Cart</span>
+            </button>
 
             <button
               type="button"
@@ -197,6 +204,9 @@ const Navbar = () => {
           </nav>
         </div>
       )}
+
+      {/* Shopping Cart Sidebar */}
+      <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   );
 };

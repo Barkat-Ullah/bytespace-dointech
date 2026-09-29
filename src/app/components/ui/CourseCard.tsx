@@ -35,7 +35,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, className }) => 
       )}
     >
       {/* Thumbnail Area with Floating Frosted Badges */}
-      <div className="relative aspect-[1.48/1] w-full rounded-[22px] overflow-hidden bg-gray-100">
+      <div className="@container relative aspect-[1.48/1] w-full rounded-[22px] overflow-hidden bg-gray-100">
         <Link
           href={`/courses/${course.slug}`}
           className="relative block w-full h-full"
@@ -55,14 +55,14 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, className }) => 
         </Link>
 
         {/* Translucent light frosted glass pills across bottom of image */}
-        <div className="absolute inset-x-0 bottom-0 p-3 sm:p-3.5 flex items-center justify-between gap-1.5 z-10 pointer-events-none">
-          <span className="inline-flex items-center justify-center px-3 sm:px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-gray-800 bg-white/70 backdrop-blur-md border border-white/50 shadow-xs whitespace-nowrap">
+        <div className="absolute inset-x-0 bottom-0 flex items-center justify-between z-10 pointer-events-none p-2 @[270px]:px-2.5 @[270px]:py-2.5 @[360px]:p-3.5 gap-1 @[320px]:gap-1.5">
+          <span className="inline-flex items-center justify-center shrink-0 rounded-full font-medium text-gray-800 bg-white/70 backdrop-blur-md border border-white/50 shadow-xs whitespace-nowrap px-1.5 py-1 text-[10px] tracking-tight @[270px]:px-2 @[270px]:text-[11px] @[320px]:px-2.5 @[320px]:py-1.5 @[320px]:text-xs @[320px]:tracking-normal @[360px]:px-3.5 @[360px]:text-[13px]">
             {course.lessonsCount} Lessons
           </span>
-          <span className="inline-flex items-center justify-center px-3 sm:px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-gray-800 bg-white/70 backdrop-blur-md border border-white/50 shadow-xs whitespace-nowrap">
+          <span className="inline-flex items-center justify-center shrink-0 rounded-full font-medium text-gray-800 bg-white/70 backdrop-blur-md border border-white/50 shadow-xs whitespace-nowrap px-1.5 py-1 text-[10px] tracking-tight @[270px]:px-2 @[270px]:text-[11px] @[320px]:px-2.5 @[320px]:py-1.5 @[320px]:text-xs @[320px]:tracking-normal @[360px]:px-3.5 @[360px]:text-[13px]">
             {course.duration}
           </span>
-          <span className="inline-flex items-center justify-center px-3 sm:px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-medium text-gray-800 bg-white/70 backdrop-blur-md border border-white/50 shadow-xs whitespace-nowrap">
+          <span className="inline-flex items-center justify-center shrink-0 rounded-full font-medium text-gray-800 bg-white/70 backdrop-blur-md border border-white/50 shadow-xs whitespace-nowrap px-1.5 py-1 text-[10px] tracking-tight @[270px]:px-2 @[270px]:text-[11px] @[320px]:px-2.5 @[320px]:py-1.5 @[320px]:text-xs @[320px]:tracking-normal @[360px]:px-3.5 @[360px]:text-[13px]">
             {course.commentsCount} Comments
           </span>
         </div>

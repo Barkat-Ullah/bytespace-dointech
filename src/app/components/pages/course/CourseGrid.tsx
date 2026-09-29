@@ -7,38 +7,19 @@ import { Course } from "@/data/mock-data";
 
 export interface CourseGridProps {
   courses: Course[];
-  totalCoursesCount: number;
-  currentPage: number;
-  itemsPerPage: number;
+  totalCoursesCount?: number;
+  currentPage?: number;
+  itemsPerPage?: number;
   onResetFilters: () => void;
 }
 
 export const CourseGrid: React.FC<CourseGridProps> = ({
   courses,
-  totalCoursesCount,
-  currentPage,
-  itemsPerPage,
   onResetFilters,
 }) => {
   return (
     <section className="w-full bg-white py-10 sm:py-12 md:py-16">
       <NMContainer>
-        {/* Results Count Header */}
-        <div className="mb-6 sm:mb-8 flex items-center justify-between text-xs sm:text-sm text-gray-500">
-          <span>
-            Showing{" "}
-            <strong className="text-gray-900 font-semibold">
-              {totalCoursesCount === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1}
-              -
-              {Math.min(currentPage * itemsPerPage, totalCoursesCount)}
-            </strong>{" "}
-            of{" "}
-            <strong className="text-gray-900 font-semibold">
-              {totalCoursesCount}
-            </strong>{" "}
-            courses
-          </span>
-        </div>
 
         {/* 3-Column Responsive Cards Grid */}
         {courses.length > 0 ? (
