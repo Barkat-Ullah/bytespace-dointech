@@ -31,7 +31,7 @@ const HeroSection = () => {
                 />
 
                 {/* Foreground Content: Title, Description, and Search Bar */}
-                <div className="absolute inset-x-0 top-0 z-10 pt-6 md:pt-8 lg:pt-10 xl:pt-14">
+                <div className="absolute inset-x-0 top-0 z-10 pt-[clamp(2rem,6vw,10.5rem)]">
                     <NMContainer>
                         <div className="max-w-3xl lg:max-w-4xl mx-auto text-center flex flex-col items-center">
 
