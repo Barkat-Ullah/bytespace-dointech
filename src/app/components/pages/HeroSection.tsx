@@ -19,7 +19,7 @@ const HeroSection = () => {
     return (
         <section className="relative w-full bg-secondary bg-[url('/common-bg.png')] bg-top bg-cover bg-no-repeat overflow-hidden">
 
-            <div className="relative w-full max-w-[1920px] mx-auto min-h-[480px] sm:min-h-0 aspect-[2880/2048]">
+            <div className="relative w-full min-h-[480px] sm:min-h-0 aspect-[2880/2048]">
                 {/* Background Frame Graphic */}
                 <Image
                     src="/Hero_Frame.png"
@@ -27,7 +27,7 @@ const HeroSection = () => {
                     fill
                     priority
                     sizes="100vw"
-                    className="object-contain object-bottom sm:object-top select-none pointer-events-none"
+                    className="object-contain object-bottom sm:object-cover sm:object-center select-none pointer-events-none"
                 />
 
                 {/* Foreground Content: Title, Description, and Search Bar */}
