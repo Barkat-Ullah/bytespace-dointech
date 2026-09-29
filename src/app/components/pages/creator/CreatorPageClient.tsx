@@ -2,10 +2,10 @@
 
 import React, { useState, useMemo, useRef } from "react";
 import NMContainer from "@/app/components/ui/Container";
-import CourseCard from "@/app/components/ui/CourseCard";
+import CreatorCard from "@/app/components/ui/CreatorCard";
 import { CoursePagination } from "@/app/components/pages/course";
 import { CreatorHeroBanner } from "./CreatorHeroBanner";
-import { COURSES_MOCK_DATA, COURSE_CATEGORIES } from "@/data/mock-data";
+import { CREATORS_MOCK_DATA, CREATOR_CATEGORIES } from "@/data/mock-data";
 import { cn } from "@/lib/utils";
 
 const ITEMS_PER_PAGE = 6;
@@ -15,8 +15,6 @@ export const CreatorPageClient: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const gridTopRef = useRef<HTMLDivElement>(null);
-
-  const categories = useMemo(() => ["All", ...COURSE_CATEGORIES], []);
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
@@ -34,18 +32,19 @@ export const CreatorPageClient: React.FC = () => {
     setCurrentPage(1);
   };
 
-  // Filter courses by search query and category
-  const filteredCourses = useMemo(() => {
-    let list = [...COURSES_MOCK_DATA];
+  // Filter creators based on search query and category
+  const filteredCreators = useMemo(() => {
+    let list = [...CREATORS_MOCK_DATA];
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
       list = list.filter(
         (c) =>
-          c.title.toLowerCase().includes(q) ||
-          c.subtitle.toLowerCase().includes(q) ||
+          c.name.toLowerCase().includes(q) ||
+          c.username.toLowerCase().includes(q) ||
+          c.role.toLowerCase().includes(q) ||
           c.category.toLowerCase().includes(q) ||
-          c.author.name.toLowerCase().includes(q)
+          (c.shortBio && c.shortBio.toLowerCase().includes(q))
       );
     }
 
@@ -58,12 +57,12 @@ export const CreatorPageClient: React.FC = () => {
     return list;
   }, [searchQuery, selectedCategory]);
 
-  const totalPages = Math.ceil(filteredCourses.length / ITEMS_PER_PAGE) || 1;
+  const totalPages = Math.ceil(filteredCreators.length / ITEMS_PER_PAGE) || 1;
 
-  const paginatedCourses = useMemo(() => {
+  const paginatedCreators = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    return filteredCourses.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-  }, [filteredCourses, currentPage]);
+    return filteredCreators.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredCreators, currentPage]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -74,25 +73,25 @@ export const CreatorPageClient: React.FC = () => {
 
   return (
     <div className="w-full bg-white min-h-screen">
-      {/* 1. Hero / Navigation Section matching Courses page */}
+      {/* 1. Creator Hero Banner */}
       <CreatorHeroBanner
         searchQuery={searchQuery}
         onSearchChange={handleSearchChange}
-        onSearchSubmit={() => {
+        onCreatorsButtonClick={() => {
           if (gridTopRef.current) {
             gridTopRef.current.scrollIntoView({ behavior: "smooth" });
           }
         }}
       />
 
-      {/* Anchor for smooth scrolling */}
+      {/* Anchor for smooth scroll */}
       <div ref={gridTopRef} className="scroll-mt-24" />
 
-      {/* 2. Category Filter Pills Bar */}
+      {/* 2. Category Filter Pills */}
       <section className="w-full bg-white border-b border-gray-100 py-6 sm:py-7">
         <NMContainer>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap">
-            {categories.map((category) => {
+            {CREATOR_CATEGORIES.map((category) => {
               const isActive = selectedCategory === category;
               return (
                 <button
@@ -114,7 +113,7 @@ export const CreatorPageClient: React.FC = () => {
         </NMContainer>
       </section>
 
-      {/* 3. Main Course Cards Section (3 cards per row on desktop) */}
+      {/* 3. Main Creator Cards Grid (3 per row on desktop) */}
       <section className="w-full bg-white py-10 sm:py-12 md:py-16">
         <NMContainer>
           {/* Header Count Row */}
@@ -122,17 +121,17 @@ export const CreatorPageClient: React.FC = () => {
             <span>
               Showing{" "}
               <strong className="text-gray-900 font-semibold">
-                {filteredCourses.length === 0
+                {filteredCreators.length === 0
                   ? 0
                   : (currentPage - 1) * ITEMS_PER_PAGE + 1}
                 -
-                {Math.min(currentPage * ITEMS_PER_PAGE, filteredCourses.length)}
+                {Math.min(currentPage * ITEMS_PER_PAGE, filteredCreators.length)}
               </strong>{" "}
               of{" "}
               <strong className="text-gray-900 font-semibold">
-                {filteredCourses.length}
+                {filteredCreators.length}
               </strong>{" "}
-              courses from top creators
+              creators
             </span>
 
             {(searchQuery.trim() !== "" || selectedCategory !== "All") && (
@@ -146,22 +145,22 @@ export const CreatorPageClient: React.FC = () => {
             )}
           </div>
 
-          {/* Responsive Course Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
-          {paginatedCourses.length > 0 ? (
+          {/* Responsive Creator Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
+          {paginatedCreators.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
-              {paginatedCourses.map((course) => (
-                <CourseCard key={course.id} course={course} />
+              {paginatedCreators.map((creator) => (
+                <CreatorCard key={creator.id} creator={creator} />
               ))}
             </div>
           ) : (
             /* Empty State */
             <div className="py-20 px-4 text-center rounded-3xl bg-gray-50 border border-dashed border-gray-200 max-w-lg mx-auto">
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                No courses found
+                No creators found
               </h3>
               <p className="text-sm text-gray-500 mb-6">
-                We couldn&apos;t find any courses matching your search. Try adjusting
-                your query or selecting a different category.
+                We couldn&apos;t find any creators matching your search. Try searching
+                with different keywords or clear your active filters.
               </p>
               <button
                 type="button"

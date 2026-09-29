@@ -1079,29 +1079,415 @@ export interface Creator {
   id: string;
   slug: string;
   name: string;
+  username: string;
   badge: string;
   role: string;
+  category: string;
   avatar: string;
   bio: string[];
+  shortBio?: string;
   productsCount: number;
   followersCount: number;
+  rating: number;
+  studentsCount?: number;
 }
+
+export const CREATOR_CATEGORIES = [
+  "All",
+  "UI/UX Design",
+  "Web Development",
+  "Digital Illustration",
+  "AI & Data Science",
+  "Marketing & Growth",
+  "Photography & Video",
+  "Motion & 3D",
+  "Productivity & Business",
+] as const;
+
+export type CreatorCategory = (typeof CREATOR_CATEGORIES)[number];
 
 export const CREATORS_MOCK_DATA: Creator[] = [
   {
     id: "creator-1",
     slug: "purepearl-studio",
     name: "PurePearl Studio",
-    badge: "Creator",
-    role: "Passionate UI/UX, Web designer",
+    username: "@purepearl",
+    badge: "Pro Creator",
+    role: "Passionate UI/UX & Web Designer",
+    category: "UI/UX Design",
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80",
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
     bio: [
       "Welcome to the creative world of PurePearl Studio. Here, you'll discover the passion, expertise, and inspiration that drive my creative journey. Let's explore and learn together!",
       "Dive into my creative portfolio, showcasing a glimpse of my artistic endeavors. From digital designs to multimedia projects, each piece tells a unique story. Explore the world of creativity with me.",
     ],
-    productsCount: 3,
-    followersCount: 12,
+    shortBio: "Crafting modern user experiences, design systems, and web interfaces.",
+    productsCount: 8,
+    followersCount: 14200,
+    rating: 4.9,
+    studentsCount: 3820,
+  },
+  {
+    id: "creator-2",
+    slug: "marcus-chen",
+    name: "Marcus Chen",
+    username: "@marcusdev",
+    badge: "Top Mentor",
+    role: "Full-Stack Engineer & Next.js Architect",
+    category: "Web Development",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Hey! I'm Marcus Chen, a full-stack engineer passionate about teaching modern web development using React, Next.js, and TypeScript.",
+      "Over the last decade, I have trained thousands of developers worldwide to build scalable and performant cloud web applications.",
+    ],
+    shortBio: "Mastering full-stack web applications with React, Next.js, and TypeScript.",
+    productsCount: 12,
+    followersCount: 28400,
+    rating: 4.9,
+    studentsCount: 6500,
+  },
+  {
+    id: "creator-3",
+    slug: "sophia-al-mansoor",
+    name: "Sophia Al-Mansoor",
+    username: "@sophiadesign",
+    badge: "Elite Creator",
+    role: "Design Lead & Figma Specialist",
+    category: "UI/UX Design",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Lead designer helping students understand the psychology of visual interfaces and master Figma from beginner to enterprise workflows.",
+    ],
+    shortBio: "Transforming ideas into polished, accessible product design systems in Figma.",
+    productsCount: 6,
+    followersCount: 19800,
+    rating: 4.8,
+    studentsCount: 4200,
+  },
+  {
+    id: "creator-4",
+    slug: "david-kim",
+    name: "David Kim",
+    username: "@daviddata",
+    badge: "AI Specialist",
+    role: "Senior AI Researcher & Data Scientist",
+    category: "AI & Data Science",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Researcher at the forefront of generative AI, neural networks, and Python data pipelines for real-world enterprise applications.",
+    ],
+    shortBio: "Deep learning, predictive models, and practical Generative AI with Python.",
+    productsCount: 9,
+    followersCount: 22100,
+    rating: 5.0,
+    studentsCount: 5100,
+  },
+  {
+    id: "creator-5",
+    slug: "maya-lin",
+    name: "Maya Lin",
+    username: "@mayadraws",
+    badge: "Artist",
+    role: "Concept Artist & Digital Illustrator",
+    category: "Digital Illustration",
+    avatar:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Illustrator who has worked with leading games and media studios. Teaching digital character design, lighting, and concept art.",
+    ],
+    shortBio: "Digital illustration, character concept art, and vibrant brush techniques in Procreate.",
+    productsCount: 7,
+    followersCount: 31200,
+    rating: 4.9,
+    studentsCount: 7800,
+  },
+  {
+    id: "creator-6",
+    slug: "lucas-silva",
+    name: "Lucas Silva",
+    username: "@lucas3d",
+    badge: "3D Maestro",
+    role: "Blender & 3D Motion Specialist",
+    category: "Motion & 3D",
+    avatar:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Crafting hyper-realistic 3D scenes and motion graphics in Blender. Empowering 3D artists to monetize commercial animation.",
+    ],
+    shortBio: "Bringing ideas to life with Blender, 3D modeling, lighting, and cinematic motion graphics.",
+    productsCount: 5,
+    followersCount: 16500,
+    rating: 4.8,
+    studentsCount: 3400,
+  },
+  {
+    id: "creator-7",
+    slug: "amara-okafor",
+    name: "Amara Okafor",
+    username: "@amarafound",
+    badge: "Strategist",
+    role: "Startup Founder & Product Strategist",
+    category: "Productivity & Business",
+    avatar:
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Serial founder teaching customer discovery, digital monetization, and building lean MVPs from zero to product-market fit.",
+    ],
+    shortBio: "Proven frameworks to launch startups, validate ideas, and accelerate revenue.",
+    productsCount: 4,
+    followersCount: 18900,
+    rating: 4.9,
+    studentsCount: 4600,
+  },
+  {
+    id: "creator-8",
+    slug: "alexander-wright",
+    name: "Alexander Wright",
+    username: "@alexwright",
+    badge: "Architect",
+    role: "Cloud Architect & Distributed Systems",
+    category: "Web Development",
+    avatar:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Principal cloud architect guiding developers through microservices, serverless infrastructure, and high-concurrency systems.",
+    ],
+    shortBio: "Scalable cloud architectures, Docker, Kubernetes, and serverless best practices.",
+    productsCount: 10,
+    followersCount: 24700,
+    rating: 4.8,
+    studentsCount: 5900,
+  },
+  {
+    id: "creator-9",
+    slug: "nathaniel-brooks",
+    name: "Nathaniel Brooks",
+    username: "@nategrowth",
+    badge: "Growth Lead",
+    role: "Digital Marketing & Brand Growth",
+    category: "Marketing & Growth",
+    avatar:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Former growth director at top fintech startups, breaking down paid ads, organic SEO pipelines, and conversion rate optimization.",
+    ],
+    shortBio: "Data-driven marketing, user acquisition funnels, and organic brand acceleration.",
+    productsCount: 8,
+    followersCount: 27300,
+    rating: 4.9,
+    studentsCount: 6200,
+  },
+  {
+    id: "creator-10",
+    slug: "clara-morales",
+    name: "Clara Morales",
+    username: "@claramorales",
+    badge: "Photographer",
+    role: "Commercial Photographer & Colorist",
+    category: "Photography & Video",
+    avatar:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Published photographer sharing secrets of natural lighting, street portraits, and professional Lightroom / Photoshop color grading.",
+    ],
+    shortBio: "Capturing visual emotion with professional lighting, composition, and color grading.",
+    productsCount: 6,
+    followersCount: 21500,
+    rating: 4.9,
+    studentsCount: 4800,
+  },
+  {
+    id: "creator-11",
+    slug: "julian-dupont",
+    name: "Julian Dupont",
+    username: "@juliandupont",
+    badge: "Design Lead",
+    role: "Interaction Designer & Micro-Animations",
+    category: "UI/UX Design",
+    avatar:
+      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Obsessed with smooth micro-interactions, spring physics, and Framer prototypes that wow users and stakeholders.",
+    ],
+    shortBio: "Delightful web interactions, interactive prototypes, and motion design in Framer.",
+    productsCount: 7,
+    followersCount: 15800,
+    rating: 4.8,
+    studentsCount: 3900,
+  },
+  {
+    id: "creator-12",
+    slug: "dr-evelyn-reed",
+    name: "Dr. Evelyn Reed",
+    username: "@evelynai",
+    badge: "AI Scholar",
+    role: "AI Ethics & Machine Learning Professor",
+    category: "AI & Data Science",
+    avatar:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Demystifying statistical learning, LLM fine-tuning, and responsible AI system architecture for tech professionals.",
+    ],
+    shortBio: "Rigorous yet intuitive explanations of machine learning algorithms and LLMs.",
+    productsCount: 5,
+    followersCount: 34100,
+    rating: 5.0,
+    studentsCount: 8900,
+  },
+  {
+    id: "creator-13",
+    slug: "liam-gallagher",
+    name: "Liam Gallagher",
+    username: "@liamsound",
+    badge: "Producer",
+    role: "Audio Engineer & Sound Designer",
+    category: "Photography & Video",
+    avatar:
+      "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Award-winning sound designer sharing techniques for podcast mixing, film score basics, and crisp vocal production.",
+    ],
+    shortBio: "Professional sound design, mixing, and audio production for creators and podcasters.",
+    productsCount: 4,
+    followersCount: 11200,
+    rating: 4.7,
+    studentsCount: 2600,
+  },
+  {
+    id: "creator-14",
+    slug: "chloe-zhang",
+    name: "Chloe Zhang",
+    username: "@chloezhang",
+    badge: "Brand Stylist",
+    role: "Brand Identity & Logo Crafting",
+    category: "Digital Illustration",
+    avatar:
+      "https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Guiding designers through creative logo exploration, geometric grids, and crafting cohesive visual identity guidelines.",
+    ],
+    shortBio: "Timeless logo design, visual identities, and brand guidelines for modern companies.",
+    productsCount: 6,
+    followersCount: 23400,
+    rating: 4.9,
+    studentsCount: 5300,
+  },
+  {
+    id: "creator-15",
+    slug: "tariq-hassan",
+    name: "Tariq Hassan",
+    username: "@tariqcloud",
+    badge: "DevOps Pro",
+    role: "DevOps Engineer & SRE Specialist",
+    category: "Web Development",
+    avatar:
+      "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Streamlining deployment pipelines with GitHub Actions, Terraform, and cloud infrastructure automation.",
+    ],
+    shortBio: "Mastering modern CI/CD pipelines, container orchestration, and cloud reliability.",
+    productsCount: 8,
+    followersCount: 17600,
+    rating: 4.8,
+    studentsCount: 4100,
+  },
+  {
+    id: "creator-16",
+    slug: "zoe-martinez",
+    name: "Zoe Martinez",
+    username: "@zoemobile",
+    badge: "Mobile Guru",
+    role: "Mobile App Architect & Flutter Specialist",
+    category: "Web Development",
+    avatar:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Building silky smooth cross-platform applications with Flutter and React Native for iOS and Android.",
+    ],
+    shortBio: "Crafting beautiful, reactive mobile apps with Flutter, Dart, and state management.",
+    productsCount: 7,
+    followersCount: 20400,
+    rating: 4.9,
+    studentsCount: 4900,
+  },
+  {
+    id: "creator-17",
+    slug: "isabella-rossi",
+    name: "Isabella Rossi",
+    username: "@isabellarossi",
+    badge: "Typography Lead",
+    role: "Editorial Designer & Typographer",
+    category: "UI/UX Design",
+    avatar:
+      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Teaching the nuances of typeface pairing, modular scales, and creating stunning editorial magazine layouts.",
+    ],
+    shortBio: "Mastering typography, layout hierarchies, and editorial design for digital & print.",
+    productsCount: 5,
+    followersCount: 13900,
+    rating: 4.8,
+    studentsCount: 3100,
+  },
+  {
+    id: "creator-18",
+    slug: "vikram-patel",
+    name: "Vikram Patel",
+    username: "@vikramfin",
+    badge: "FinTech Pro",
+    role: "FinTech Analyst & Crypto Researcher",
+    category: "Productivity & Business",
+    avatar:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Navigating blockchain primitives, decentralised finance economics, and financial modeling for digital creators.",
+    ],
+    shortBio: "Decentralized finance, digital assets, and smart financial management for creators.",
+    productsCount: 6,
+    followersCount: 26800,
+    rating: 4.8,
+    studentsCount: 5700,
+  },
+  {
+    id: "creator-19",
+    slug: "ethan-howard",
+    name: "Ethan Howard",
+    username: "@ethancyber",
+    badge: "Security Lead",
+    role: "Cybersecurity Analyst & Ethical Hacker",
+    category: "Web Development",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Securing web applications, penetration testing modern APIs, and defending systems against OWASP Top 10 exploits.",
+    ],
+    shortBio: "Web application security, API vulnerability testing, and ethical hacking essentials.",
+    productsCount: 9,
+    followersCount: 29500,
+    rating: 4.9,
+    studentsCount: 7100,
+  },
+  {
+    id: "creator-20",
+    slug: "hannah-schmidt",
+    name: "Hannah Schmidt",
+    username: "@hannahcreator",
+    badge: "Content Strategist",
+    role: "YouTube Producer & Audience Growth",
+    category: "Marketing & Growth",
+    avatar:
+      "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=600&q=80",
+    bio: [
+      "Helping creative professionals script, produce, and scale impactful video content and personal brands.",
+    ],
+    shortBio: "Video storytelling, YouTube algorithms, and building a loyal engaged community.",
+    productsCount: 8,
+    followersCount: 38200,
+    rating: 5.0,
+    studentsCount: 9400,
   },
 ];
 
@@ -1111,4 +1497,5 @@ export const getCreatorBySlug = (slug: string): Creator => {
     CREATORS_MOCK_DATA[0]
   );
 };
+
 
